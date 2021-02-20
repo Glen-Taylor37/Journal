@@ -45,7 +45,7 @@ class GoogleSignIn extends React.Component {
 	renderSignInButton() {
 		if (this.props.user.signedIn) {
 			return (
-				<button onClick={this.onSignOutClick} className="ui red button">
+				<button onClick={this.onSignOutClick} className="ui button red">
 					<i className="fab fa-google" /> Sign Out
 				</button>
 			);
