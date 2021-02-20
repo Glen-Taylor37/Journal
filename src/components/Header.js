@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Title from './Title';
+import GoogleSignIn from './GoogleSignIn';
 
 const Header = () => {
 	return (
@@ -12,9 +13,7 @@ const Header = () => {
 					<button className="ui button">
 						<i className="fas fa-cog" />Settings
 					</button>
-					<button className="ui button">
-						<i className="fab fa-google" /> Sign in
-					</button>
+					<GoogleSignIn />
 				</div>
 			</div>
 		</div>

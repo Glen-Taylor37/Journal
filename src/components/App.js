@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
-import Title from './Title';
 import JournalList from './journals/JournalList';
 
 const App = () => {

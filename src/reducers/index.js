@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import userAuthReducer from './userAuthReducer';
 
 export default combineReducers({
-	replace : () => 'replace'
+	user : userAuthReducer
 });
