@@ -1,7 +1,7 @@
 import { SIGN_IN, SIGN_OUT } from './types';
 
-export const signIn = (id) => {
-	return { type: SIGN_IN, payload: id };
+export const signIn = (basicProfile) => {
+	return { type: SIGN_IN, payload: basicProfile };
 };
 
 export const signOut = () => {
