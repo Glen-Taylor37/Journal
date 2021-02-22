@@ -53,7 +53,10 @@ class GoogleSignIn extends React.Component {
 			);
 		} else {
 			return (
-				<button onClick={this.onSignInClick} className="ui button">
+				<button
+					onClick={this.onSignInClick}
+					className="ui button green"
+				>
 					<i className="fab fa-google" /> Sign in
 				</button>
 			);

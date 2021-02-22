@@ -7,3 +7,5 @@ export const signIn = (basicProfile) => {
 export const signOut = () => {
 	return { type: SIGN_OUT };
 };
+
+export const createStream = (formInput) => {};
