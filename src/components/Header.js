@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Title from './Title';
 import GoogleSignIn from './GoogleSignIn';
 
@@ -21,7 +22,9 @@ const Header = (props) => {
 			<Title />
 			<div className="nav">
 				{renderName()}
-				<button className="ui button transparent">Journals</button>
+				<Link to="/" className="ui button transparent">
+					Journals
+				</Link>
 				<div className="nav-right">
 					<button className="ui transparent button">
 						<i className="fas fa-cog" />Settings

@@ -1,14 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import Header from './Header';
 import JournalList from './journals/JournalList';
 import CreateJournal from './journals/CreateJournal';
 
+import history from '../history';
+
 const App = () => {
 	return (
 		<div className="app-container">
-			<BrowserRouter>
+			<Router history={history}>
 				<Header />
 				<Route path="/" exact component={JournalList} />
 				<Route
@@ -16,7 +18,7 @@ const App = () => {
 					exact
 					component={CreateJournal}
 				/>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };

@@ -47,7 +47,10 @@ class GoogleSignIn extends React.Component {
 	renderSignInButton() {
 		if (this.props.user.signedIn) {
 			return (
-				<button onClick={this.onSignOutClick} className="ui button red">
+				<button
+					onClick={this.onSignOutClick}
+					className="ui transparent button red"
+				>
 					<i className="fab fa-google" /> Sign Out
 				</button>
 			);
@@ -55,7 +58,7 @@ class GoogleSignIn extends React.Component {
 			return (
 				<button
 					onClick={this.onSignInClick}
-					className="ui button green"
+					className="ui transparent button green"
 				>
 					<i className="fab fa-google" /> Sign in
 				</button>
