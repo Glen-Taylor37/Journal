@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Modal from '../Modal';
+import Modal from '../shared/Modal';
 import { createJournal } from '../../actions';
 
 class CreateJournal extends React.Component {

@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import _ from 'lodash';
 import { getJournals } from '../../actions';
+
+const Title = styled.h3`
+	font-size: 30px;
+	margin-bottom: 10px;
+`;
 
 class JournalList extends React.Component {
 	componentDidMount() {
@@ -21,7 +27,7 @@ class JournalList extends React.Component {
 	render() {
 		return (
 			<div className="ui-container content">
-				JournalList
+				<Title>Journal List</Title>
 				<br />
 				<Link className="ui green button" to="/journals/create">
 					Create
