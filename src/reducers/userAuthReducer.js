@@ -11,6 +11,7 @@ export default (state = {}, action) => {
 			};
 		case SIGN_OUT:
 			return { ...state, signedIn: false, googleId: null, name: '' };
+
 		default:
 			return state;
 	}

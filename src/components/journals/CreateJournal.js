@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Modal from '../Modal';
-import { createStream } from '../../actions';
+import { createJournal } from '../../actions';
 
 class CreateJournal extends React.Component {
 	state = { title: '' };
 
 	onSubmit = (event) => {
 		event.preventDefault();
-		this.props.createStream(this.state.title);
+		this.props.createJournal(this.state.title);
 	};
 
 	renderForm = () => {
@@ -45,4 +45,4 @@ const mapStateToProps = (state) => {
 	return { userId: state.user.googleId };
 };
 
-export default connect(mapStateToProps, { createStream })(CreateJournal);
+export default connect(mapStateToProps, { createJournal })(CreateJournal);
