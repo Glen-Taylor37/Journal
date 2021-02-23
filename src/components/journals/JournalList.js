@@ -18,7 +18,7 @@ class JournalList extends React.Component {
 	renderJournalList() {
 		const renderedJournals = [];
 		_.forIn(this.props.journals, (value, key) => {
-			renderedJournals.push(<div>{value.formInput}</div>);
+			renderedJournals.push(<div key={value._id}>{value.formInput}</div>);
 		});
 
 		return renderedJournals;
