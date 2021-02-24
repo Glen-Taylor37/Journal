@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { signIn, signOut } from '../actions';
+import { signIn, signOut } from '../../actions';
+import { Button } from './styles';
 
 class GoogleSignIn extends React.Component {
 	componentDidMount() {
@@ -47,21 +48,21 @@ class GoogleSignIn extends React.Component {
 	renderSignInButton() {
 		if (this.props.user.signedIn) {
 			return (
-				<button
+				<Button
 					onClick={this.onSignOutClick}
 					className="ui transparent button red"
 				>
 					<i className="fab fa-google" /> Sign Out
-				</button>
+				</Button>
 			);
 		} else {
 			return (
-				<button
+				<Button
 					onClick={this.onSignInClick}
 					className="ui transparent button green"
 				>
 					<i className="fab fa-google" /> Sign in
-				</button>
+				</Button>
 			);
 		}
 	}

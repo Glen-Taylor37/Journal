@@ -2,11 +2,12 @@ import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Header from './Header';
+import Header from './Header/index';
 import JournalList from './journals/JournalList';
 import CreateJournal from './journals/CreateJournal';
 import history from '../history';
-import AppStyles from './shared/styles';
+import GlobalStyles from './shared/styles';
+import GlobalFonts from './shared/fonts';
 
 const AppContainer = styled.div`
 	font-size: 13px;
@@ -16,7 +17,8 @@ const AppContainer = styled.div`
 const App = () => {
 	return (
 		<div className="app-container">
-			<AppStyles />
+			<GlobalFonts />
+			<GlobalStyles />
 			<Router history={history}>
 				<Header />
 				<Route path="/" exact component={JournalList} />
