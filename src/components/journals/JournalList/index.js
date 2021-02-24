@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import _ from 'lodash';
-import { getJournals } from '../../actions';
+import styled from 'styled-components';
+
+import { getJournals } from '../../../actions';
+import ContentDiv from '../../shared/ContentDiv';
 
 const Title = styled.h3`
 	font-size: 30px;
+	margin: 0;
 	margin-bottom: 10px;
 `;
 
@@ -26,14 +29,14 @@ class JournalList extends React.Component {
 
 	render() {
 		return (
-			<div className="ui-container content">
+			<ContentDiv>
 				<Title>Journal List</Title>
 				<br />
 				<Link className="ui green button" to="/journals/create">
 					Create
 				</Link>
 				{this.renderJournalList()}
-			</div>
+			</ContentDiv>
 		);
 	}
 }

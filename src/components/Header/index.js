@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 
 import Title from './Title';
 import GoogleSignIn from './GoogleSignIn';
-
 import { HeaderDiv, NavDiv, Button, InnerNavDiv, Vl } from './styles';
 
 const Header = (props) => {
 	const renderName = () => {
 		if (props.name) {
 			return (
-				<InnerNavDiv className="user">
+				<InnerNavDiv>
 					<i className="fas fa-user" />
 					{props.name}
 					<Vl />

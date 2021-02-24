@@ -2,21 +2,24 @@ import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Header from './Header/index';
-import JournalList from './journals/JournalList';
+import Header from './Header/';
+import JournalList from './journals/JournalList/';
 import CreateJournal from './journals/CreateJournal';
 import history from '../history';
-import GlobalStyles from './shared/styles';
+import GlobalStyles from './shared/GlobalStyle';
 import GlobalFonts from './shared/fonts';
 
-const AppContainer = styled.div`
-	font-size: 13px;
-	font-family: ;
+const AppDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	font-family: Montserrat;
+	height: 100%;
+	width: 100%;
 `;
 
 const App = () => {
 	return (
-		<div className="app-container">
+		<AppDiv>
 			<GlobalFonts />
 			<GlobalStyles />
 			<Router history={history}>
@@ -28,7 +31,7 @@ const App = () => {
 					component={CreateJournal}
 				/>
 			</Router>
-		</div>
+		</AppDiv>
 	);
 };
 

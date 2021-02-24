@@ -1,23 +1,19 @@
 import styled, { css } from 'styled-components/macro';
-import { Link } from 'react-router-dom';
-import UIContainer from '../shared/UIContainer';
 
 const HeaderItemDiv = styled.div`width: 100%;`;
 
-export const HeaderDiv = styled.div`
-	height: 100%;
-	width: 100%;
-`;
+export const HeaderDiv = styled.div`width: 100%;`;
 
 const WhiteColor = `rgb(253, 255, 249)`;
 
 export const TitleDiv = styled(HeaderItemDiv)`
 	color: ${WhiteColor};
 	background-color: rgb(70, 81, 184);
-    padding-left: 15px;
-    padding-right 15px;
 	font-size: x-large;
 
+    & > div {
+        padding-left: 15px;
+    }
 `;
 
 export const H1 = styled.h1`
@@ -34,12 +30,11 @@ export const NavDiv = styled(HeaderItemDiv)`
 	justify-content: space-between;
     font-size: large;
     background-color: ${WhiteColor};
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
     & > div {
         padding-left: 40px;
-    }
-
-    div:last-of-type {
-        padding-right: 10px;
     }
 `;
 
@@ -58,6 +53,10 @@ export const Button = styled.button`
 	&:hover {
 		filter: brightness(85%);
 	}
+`;
+
+export const RedButton = styled(Button)`
+    background-color: rgb(240, 70, 80)
 `;
 
 export const InnerNavDiv = styled.div`
