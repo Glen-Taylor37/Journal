@@ -1,14 +1,13 @@
 import styled, { css } from 'styled-components/macro';
+import colors from '../shared/colors';
 
 const HeaderItemDiv = styled.div`width: 100%;`;
 
 export const HeaderDiv = styled.div`width: 100%;`;
 
-const WhiteColor = `rgb(253, 255, 249)`;
-
 export const TitleDiv = styled(HeaderItemDiv)`
-	color: ${WhiteColor};
-	background-color: rgb(70, 81, 184);
+	color: ${colors.white};
+	background-color: ${colors.blue};
 	font-size: x-large;
 
     & > div {
@@ -29,8 +28,8 @@ export const NavDiv = styled(HeaderItemDiv)`
 	align-items: baseline;
 	justify-content: space-between;
     font-size: large;
-    background-color: ${WhiteColor};
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: ${colors.white};
+    box-shadow: 2px 2px 2px 1px ${colors.blackShadow};
     position: relative;
     z-index: 2;
     & > div {
@@ -48,7 +47,7 @@ export const Button = styled.button`
 	font-family: inherit;
 	display: inline;
 	text-decoration: none;
-	background-color: ${WhiteColor};
+	background-color: ${colors.white};
 
 	&:hover {
 		filter: brightness(85%);
@@ -56,7 +55,7 @@ export const Button = styled.button`
 `;
 
 export const RedButton = styled(Button)`
-    background-color: rgb(240, 70, 80)
+    background-color: ${colors.red}
 `;
 
 export const InnerNavDiv = styled.div`

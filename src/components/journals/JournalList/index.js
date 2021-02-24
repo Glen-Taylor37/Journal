@@ -2,16 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import styled from 'styled-components';
 
 import { getJournals } from '../../../actions';
 import ContentDiv from '../../shared/ContentDiv';
-
-const Title = styled.h3`
-	font-size: 30px;
-	margin: 0;
-	margin-bottom: 10px;
-`;
+import { Title, JournalListDiv, JournalDiv } from './styles';
 
 class JournalList extends React.Component {
 	componentDidMount() {
@@ -21,7 +15,9 @@ class JournalList extends React.Component {
 	renderJournalList() {
 		const renderedJournals = [];
 		_.forIn(this.props.journals, (value, key) => {
-			renderedJournals.push(<div key={value._id}>{value.formInput}</div>);
+			renderedJournals.push(
+				<JournalDiv key={value._id}>{value.title}</JournalDiv>
+			);
 		});
 
 		return renderedJournals;
@@ -35,7 +31,7 @@ class JournalList extends React.Component {
 				<Link className="ui green button" to="/journals/create">
 					Create
 				</Link>
-				{this.renderJournalList()}
+				<JournalListDiv>{this.renderJournalList()}</JournalListDiv>
 			</ContentDiv>
 		);
 	}

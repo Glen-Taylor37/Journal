@@ -9,7 +9,7 @@ class CreateJournal extends React.Component {
 
 	onSubmit = (event) => {
 		event.preventDefault();
-		this.props.createJournal(this.state.title);
+		this.props.createJournal({ title: this.state.title });
 	};
 
 	renderForm = () => {
