@@ -3,7 +3,12 @@ import colors from '../shared/colors';
 
 const HeaderItemDiv = styled.div`width: 100%;`;
 
-export const HeaderDiv = styled.div`width: 100%;`;
+export const HeaderDiv = styled.div`
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+`;
 
 export const TitleDiv = styled(HeaderItemDiv)`
 	color: ${colors.white};
@@ -30,7 +35,6 @@ export const NavDiv = styled(HeaderItemDiv)`
     font-size: large;
     background-color: ${colors.white};
     box-shadow: 2px 2px 2px 1px ${colors.blackShadow};
-    position: relative;
     z-index: 2;
     & > div {
         padding-left: 40px;

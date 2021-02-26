@@ -12,7 +12,12 @@ export const signOut = () => {
 
 export const createJournal = (formInput) => async (dispatch, getState) => {
 	const userId = getState().user.googleId;
-	const { data } = await journals.post('/journals', { ...formInput, userId });
+	const date = new Date().toLocaleString();
+	const { data } = await journals.post('/journals', {
+		...formInput,
+		userId,
+		date
+	});
 	dispatch({ type: CREATE_JOURNAL, payload: data });
 	history.push('/');
 };

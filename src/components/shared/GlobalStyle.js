@@ -7,6 +7,7 @@ export default createGlobalStyle`
         height: 100%;
         width: 100%;
         padding: 0;
+        min-width: 800px;
     }
 
     i {

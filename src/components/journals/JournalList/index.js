@@ -5,32 +5,53 @@ import _ from 'lodash';
 
 import { getJournals } from '../../../actions';
 import ContentDiv from '../../shared/ContentDiv';
-import { Title, JournalListDiv, JournalDiv } from './styles';
+import { Title, JournalListDiv, JournalDiv, CreateButton } from './styles';
+import JournalCreate from '../JournalCreate';
 
 class JournalList extends React.Component {
+	state = { modalOpen: false };
+
 	componentDidMount() {
 		this.props.getJournals();
 	}
 
 	renderJournalList() {
 		const renderedJournals = [];
-		_.forIn(this.props.journals, (value, key) => {
+		_.forEach(this.props.journals, (journal) => {
 			renderedJournals.push(
-				<JournalDiv key={value._id}>{value.title}</JournalDiv>
+				<JournalDiv
+					as={Link}
+					to={`/journals/${journal._id}`}
+					key={journal._id}
+				>
+					<h3>{journal.title}</h3>
+					<div>{journal.date}</div>
+				</JournalDiv>
 			);
 		});
 
 		return renderedJournals;
 	}
 
+	onCreateClick = () => {
+		this.setState({ modalOpen: true });
+	};
+
+	closeModal = () => {
+		this.setState({ modalOpen: false });
+	};
+
 	render() {
 		return (
 			<ContentDiv>
 				<Title>Journal List</Title>
 				<br />
-				<Link className="ui green button" to="/journals/create">
-					Create
-				</Link>
+				<CreateButton onClick={this.onCreateClick}>Create</CreateButton>
+				<JournalCreate
+					onDismiss={this.closeModal}
+					onSubmit={this.closeModal}
+					isOpen={this.state.modalOpen}
+				/>
 				<JournalListDiv>{this.renderJournalList()}</JournalListDiv>
 			</ContentDiv>
 		);
