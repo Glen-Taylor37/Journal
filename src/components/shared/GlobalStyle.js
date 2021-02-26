@@ -10,6 +10,7 @@ export default createGlobalStyle`
         min-width: 800px;
     }
 
+
     i {
         padding-right: 3px;
     }

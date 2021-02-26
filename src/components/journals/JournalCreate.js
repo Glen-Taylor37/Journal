@@ -8,10 +8,6 @@ import { createJournal } from '../../actions';
 class JournalCreate extends React.Component {
 	state = { title: '' };
 
-	constructor(props) {
-		super(props);
-	}
-
 	onSubmit = (event) => {
 		event.preventDefault();
 

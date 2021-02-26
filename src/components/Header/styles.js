@@ -8,6 +8,7 @@ export const HeaderDiv = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
+	height: 100px;
 `;
 
 export const TitleDiv = styled(HeaderItemDiv)`
