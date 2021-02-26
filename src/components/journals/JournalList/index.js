@@ -18,12 +18,12 @@ class JournalList extends React.Component {
 	renderJournalList() {
 		const renderedJournals = [];
 		_.forEach(this.props.journals, (journal) => {
+			if (journal.userId !== this.props.userId) {
+				return null;
+			}
+
 			renderedJournals.push(
-				<JournalDiv
-					as={Link}
-					to={`/journals/${journal._id}`}
-					key={journal._id}
-				>
+				<JournalDiv as={Link} to={`/journals/${journal._id}`} key={journal._id}>
 					<h3>{journal.title}</h3>
 					<div>{journal.date}</div>
 				</JournalDiv>
@@ -59,7 +59,7 @@ class JournalList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-	return { journals: state.journals };
+	return { journals: state.journals, userId: state.user.googleId };
 };
 
 export default connect(mapStateToProps, { getJournals })(JournalList);
