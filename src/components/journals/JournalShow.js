@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Quill from 'quill';
 import ContentDiv from '../shared/ContentDiv';
-import { getJournals } from '../../actions';
+import { getJournal } from '../../actions';
 
 const JournalDiv = styled.div``;
 const EditorDiv = styled.div`
@@ -18,7 +18,7 @@ class JournalShow extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getJournals();
+		this.props.getJournal(this.props.match.params.id);
 	}
 
 	componentDidUpdate() {
@@ -59,4 +59,4 @@ const mapStateToProps = (state, ownProps) => {
 	return { journal: state.journals[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { getJournals })(JournalShow);
+export default connect(mapStateToProps, { getJournal })(JournalShow);

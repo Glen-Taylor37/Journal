@@ -1,4 +1,10 @@
-import { CREATE_JOURNAL, GET_JOURNALS, SIGN_IN, SIGN_OUT } from './types';
+import {
+	CREATE_JOURNAL,
+	GET_JOURNAL,
+	GET_JOURNALS,
+	SIGN_IN,
+	SIGN_OUT
+} from './types';
 import history from '../history';
 import journals from '../apis/journals';
 
@@ -26,4 +32,9 @@ export const getJournals = () => async (dispatch) => {
 	const { data } = await journals.get('/journals');
 	console.log(data);
 	dispatch({ type: GET_JOURNALS, payload: data });
+};
+
+export const getJournal = (journalId) => async (dispatch) => {
+	const { data } = await journals.get(`/journals/${journalId}`);
+	dispatch({ type: GET_JOURNAL, payload: data });
 };
