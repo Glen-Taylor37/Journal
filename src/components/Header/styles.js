@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import colors from '../shared/colors';
+import { BaseContentDiv } from '../shared/ContentDiv';
 
 const HeaderItemDiv = styled.div`width: 100%;`;
 

@@ -1,4 +1,9 @@
-import { CREATE_JOURNAL, GET_JOURNAL, GET_JOURNALS } from '../actions/types';
+import {
+	CREATE_JOURNAL,
+	GET_JOURNAL,
+	GET_JOURNALS,
+	UPDATE_JOURNAL
+} from '../actions/types';
 import _ from 'lodash';
 
 export default (state = {}, action) => {
@@ -14,6 +19,8 @@ export default (state = {}, action) => {
 				[action.payload._id]: action.payload
 			};
 		case CREATE_JOURNAL:
+			return { ...state, [action.payload._id]: action.payload };
+		case UPDATE_JOURNAL:
 			return { ...state, [action.payload._id]: action.payload };
 		default:
 			return state;

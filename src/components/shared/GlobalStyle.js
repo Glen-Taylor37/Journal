@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import colors from './colors';
 
 export default createGlobalStyle`
    
@@ -10,11 +11,8 @@ export default createGlobalStyle`
         min-width: 800px;
     }
 
-
-    i {
-        padding-right: 3px;
+    .ql-toolbar {
+        box-shadow: 4px 1px 8px 1px ${colors.blackShadow};
+        border-radius: 6px;
     }
-
-
-   
 `;

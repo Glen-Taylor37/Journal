@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Header from './Header/';
 import JournalList from './journals/JournalList/';
 import JournalCreate from './journals/JournalCreate';
-import JournalShow from './journals/JournalShow';
+import JournalShow from './journals/JournalShow/';
 import history from '../history';
 import GlobalStyles from './shared/GlobalStyle';
 import GlobalFonts from './shared/fonts';
@@ -37,7 +37,11 @@ const App = () => {
 				<Header />
 				<Switch>
 					<Route path="/" exact component={JournalList} />
-					<Route path="/journals/create" exact component={JournalCreate} />
+					<Route
+						path="/journals/create"
+						exact
+						component={JournalCreate}
+					/>
 					<Route path="/journals/:id" exact component={JournalShow} />
 				</Switch>
 			</Router>

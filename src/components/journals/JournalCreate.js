@@ -51,7 +51,6 @@ class JournalCreate extends React.Component {
 				}
 				title="Create Journal"
 				content={this.renderForm()}
-				ref={this.props.modalRef}
 				isOpen={
 					this.props.isOpen !== undefined ? this.props.isOpen : true
 				}

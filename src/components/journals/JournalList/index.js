@@ -7,9 +7,15 @@ import { getJournals } from '../../../actions';
 import ContentDiv from '../../shared/ContentDiv';
 import { Title, JournalListDiv, JournalDiv, CreateButton } from './styles';
 import JournalCreate from '../JournalCreate';
+import JournalDelete from '../JournalDelete';
+import JournalListItem from './JournalListItem';
 
 class JournalList extends React.Component {
-	state = { modalOpen: false };
+	state = {
+		createModalOpen : false,
+		deleteModalOpen : false,
+		selectedJournal : null
+	};
 
 	componentDidMount() {
 		this.props.getJournals();
@@ -23,22 +29,37 @@ class JournalList extends React.Component {
 			}
 
 			renderedJournals.push(
-				<JournalDiv as={Link} to={`/journals/${journal._id}`} key={journal._id}>
-					<h3>{journal.title}</h3>
-					<div>{journal.date}</div>
-				</JournalDiv>
+				<JournalListItem
+					key={journal._id}
+					onClick={this.onListItemClick}
+					onDeleteClick={this.onDeleteClick}
+					journalId={journal._id}
+				/>
 			);
 		});
 
 		return renderedJournals;
 	}
 
-	onCreateClick = () => {
-		this.setState({ modalOpen: true });
+	onListItemClick = (selectedJournal) => {
+		console.log(selectedJournal);
+		this.setState({ selectedJournal });
 	};
 
-	closeModal = () => {
-		this.setState({ modalOpen: false });
+	onCreateClick = () => {
+		this.setState({ createModalOpen: true });
+	};
+
+	closeCreateModal = () => {
+		this.setState({ createModalOpen: false });
+	};
+
+	onDeleteClick = (journalId) => {
+		this.setState({ deleteModalOpen: true });
+	};
+
+	closeDeleteModal = () => {
+		this.setState({ deleteModalOpen: false });
 	};
 
 	render() {
@@ -48,10 +69,21 @@ class JournalList extends React.Component {
 				<br />
 				<CreateButton onClick={this.onCreateClick}>Create</CreateButton>
 				<JournalCreate
-					onDismiss={this.closeModal}
-					onSubmit={this.closeModal}
-					isOpen={this.state.modalOpen}
+					onDismiss={this.closeCreateModal}
+					onSubmit={this.closeCreateModal}
+					isOpen={this.state.createModalOpen}
 				/>
+				<JournalDelete
+					onDismiss={this.closeDeleteModal}
+					onSubmit={this.closeDeleteModal}
+					isOpen={this.state.deleteModalOpen}
+					journalId={
+						this.state.selectedJournal ? (
+							this.state.selectedJournal._id
+						) : null
+					}
+				/>
+
 				<JournalListDiv>{this.renderJournalList()}</JournalListDiv>
 			</ContentDiv>
 		);

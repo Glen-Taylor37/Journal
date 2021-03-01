@@ -13,6 +13,10 @@ export const buttonStyle = css`
 	box-shadow: 0px 0px 1px 1px #1c0527;
 	color: rgb(43, 30, 30);
 	text-decoration: none;
+
+	&:hover {
+		filter: brightness(85%);
+	}
 `;
 
 export const transparentStyle = css``;
