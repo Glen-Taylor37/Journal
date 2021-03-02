@@ -6,7 +6,7 @@ import {
 	UPDATE_JOURNAL,
 	SIGN_IN,
 	SIGN_OUT,
-	SELECT_JOURNAL
+	TOGGLE_DARKMODE
 } from './types';
 import history from '../history';
 import journals from '../apis/journals';
@@ -55,4 +55,8 @@ export const updateJournal = (journalId, journal) => async (dispatch) => {
 	console.log('data: ', data);
 	dispatch({ type: UPDATE_JOURNAL, payload: data.value });
 	history.push(`/journals/${journalId}`);
+};
+
+export const ToggleDarkMode = (mode) => {
+	return { type: TOGGLE_DARKMODE, payload: mode };
 };

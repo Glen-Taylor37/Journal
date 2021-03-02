@@ -9,3 +9,6 @@ export default {
 	brightRed   : `rgb(250, 130, 120)`,
 	green       : `rgb(140, 220, 120)`
 };
+
+export const LIGHT_THEME = 'LIGHT_THEME';
+export const DARK_THEME = 'DARK_THEME';
