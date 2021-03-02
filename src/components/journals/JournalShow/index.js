@@ -1,12 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-import Quill from 'quill';
-import { BaseContentDiv } from '../../shared/ContentDiv';
-import { Button } from '../../shared/Button';
+
 import { getJournal, updateJournal } from '../../../actions';
-import colors from '../../shared/colors';
-import editor from '../../../apis/editor';
+import editor, { readableEditor } from '../../../apis/editor';
+import EntryShow from './EntryShow';
 import {
 	GridDiv,
 	JournalDiv,
@@ -15,7 +12,11 @@ import {
 	EntriesDiv
 } from './styles';
 
+import EntriesList from './EntriesList';
+
 class JournalShow extends React.Component {
+	//state = { activeEntryId: null };
+
 	constructor(props) {
 		super(props);
 		this.editor = null;
@@ -27,67 +28,64 @@ class JournalShow extends React.Component {
 	}
 
 	componentDidUpdate() {
-		this.addEditor();
+		//this.addEditor();
 	}
 
 	addEditor() {
 		if (!this.editor) {
 			this.editorRoot = document.querySelector('#editor');
-			this.editor = editor(this.editorRoot);
+			if (!this.state.readOnly) {
+				this.editor = editor(this.editorRoot);
 
-			this.editor.setText(
-				`${this.props.journal
-					.title}\n${this.date.toLocaleDateString()}\n${this.date.toLocaleTimeString()}`
-			);
+				this.editor.setText(
+					`${this.props.journal
+						.title}\n${this.date.toLocaleDateString()}\n${this.date.toLocaleTimeString()}`
+				);
+			} else {
+			}
 		}
 	}
 
-	onPostClick = () => {
+	onPostClick = (text) => {
 		const { journal } = this.props;
 		this.props.updateJournal(journal._id, {
 			entries : [
 				...journal.entries,
 				{
-					date    : this.date.toDateString(),
-					content : this.editor.getContents()
+					date : this.date.toDateString(),
+					text
 				}
 			]
 		});
 	};
 
 	onEntryClick = (index) => {
-		console.log(index);
+		//this.setState({ activeEntryId: index });
 	};
 
-	renderEntries() {
-		if (!this.props.journal) {
-			return null;
-		}
-
-		return this.props.journal.entries.map((entry, index) => {
-			return (
-				<div onClick={() => this.onEntryClick(index)}>
-					<a>{entry.date}</a>
-				</div>
-			);
-		});
-	}
+	renderEditor() {}
 
 	render() {
 		if (!this.props.journal) {
 			return null;
 		}
 
+		const { journal } = this.props;
+		const entry = journal.entries[this.props.match.params.entryId];
+		console.log('entry: ', entry);
+
 		return (
 			<GridDiv>
-				<EntriesDiv>
-					<h3>Entries</h3>
-					{this.renderEntries()}
-				</EntriesDiv>
-				<JournalDiv>
-					<EditorDiv id="editor" />
-					<PostButton onClick={this.onPostClick}>Post</PostButton>
-				</JournalDiv>
+				<EntriesList
+					onEntryClick={this.onEntryClick}
+					journal={journal}
+				/>
+				<EntryShow
+					journalId={journal._id}
+					text={entry ? entry.text : ''}
+					onPostClick={this.onPostClick}
+					readOnly={entry !== undefined}
+				/>
 			</GridDiv>
 		);
 	}

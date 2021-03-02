@@ -5,7 +5,8 @@ import {
 	DELETE_JOURNAL,
 	UPDATE_JOURNAL,
 	SIGN_IN,
-	SIGN_OUT
+	SIGN_OUT,
+	SELECT_JOURNAL
 } from './types';
 import history from '../history';
 import journals from '../apis/journals';

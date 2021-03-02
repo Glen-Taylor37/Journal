@@ -6,6 +6,7 @@ import Header from './Header/';
 import JournalList from './journals/JournalList/';
 import JournalCreate from './journals/JournalCreate';
 import JournalShow from './journals/JournalShow/';
+import EntryShow from './journals/JournalShow/EntryShow';
 import history from '../history';
 import GlobalStyles from './shared/GlobalStyle';
 import GlobalFonts from './shared/fonts';
@@ -43,6 +44,11 @@ const App = () => {
 						component={JournalCreate}
 					/>
 					<Route path="/journals/:id" exact component={JournalShow} />
+					<Route
+						path="/journals/:id/:entryId"
+						exact
+						component={JournalShow}
+					/>
 				</Switch>
 			</Router>
 		</AppDiv>

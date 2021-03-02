@@ -2,12 +2,13 @@ import Quill from 'quill';
 
 export const readableEditor = (editorRoot) => {
 	const options = {
-		debug       : 'info',
-		placeholder : 'Compose an epic...',
-		readOnly    : true,
-		bounds      : editorRoot,
-		theme       : 'snow'
+		debug    : 'info',
+		readOnly : true,
+		bounds   : editorRoot,
+		theme    : 'snow'
 	};
+
+	return new Quill(editorRoot, options);
 };
 
 export default (editorRoot) => {

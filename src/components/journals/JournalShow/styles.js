@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import colors from '../../shared/colors';
 import { BaseContentDiv } from '../../shared/ContentDiv';
 import { Button } from '../../shared/Button';
+import ReactQuill from 'react-quill';
 
 export const GridDiv = styled(BaseContentDiv)`
 	display: grid;
@@ -13,9 +14,7 @@ export const JournalDiv = styled.div`
 	width 100%;
 	align-self: start;
 `;
-export const EditorDiv = styled.div`
-	width: 100%;
-	height: 100%;
+export const EditorDiv = styled(ReactQuill)`
 	box-shadow: 4px 4px 8px 2px ${colors.blackShadow};
 	border-radius: 6px;
 `;
@@ -25,5 +24,3 @@ export const PostButton = styled(Button)`
 	height: auto;
 	margin-top: 20px;
 `;
-
-export const EntriesDiv = styled.div`height: 100%; width`;
