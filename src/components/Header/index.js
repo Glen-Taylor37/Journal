@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 
 import Title from './Title';
 import GoogleSignIn from './GoogleSignIn';
-import { HeaderDiv, NavDiv, Button, InnerNavDiv, Vl } from './styles';
+import {
+	OuterTitleDiv,
+	OuterNavDiv,
+	HeaderDiv,
+	NavDiv,
+	Button,
+	InnerNavDiv,
+	Vl
+} from './styles';
 
 const Header = (props) => {
 	const renderName = () => {
@@ -21,21 +29,25 @@ const Header = (props) => {
 
 	return (
 		<HeaderDiv>
-			<Title />
-			<NavDiv>
-				<InnerNavDiv>
-					{renderName()}
-					<Button as={Link} to="/">
-						Journals
-					</Button>
-				</InnerNavDiv>
-				<InnerNavDiv>
-					<Button>
-						<i className="fas fa-cog" />Settings
-					</Button>
-					<GoogleSignIn />
-				</InnerNavDiv>
-			</NavDiv>
+			<OuterTitleDiv>
+				<Title />
+			</OuterTitleDiv>
+			<OuterNavDiv>
+				<NavDiv>
+					<InnerNavDiv>
+						{renderName()}
+						<Button as={Link} to="/">
+							Journals
+						</Button>
+					</InnerNavDiv>
+					<InnerNavDiv>
+						<Button>
+							<i className="fas fa-cog" />Settings
+						</Button>
+						<GoogleSignIn />
+					</InnerNavDiv>
+				</NavDiv>
+			</OuterNavDiv>
 		</HeaderDiv>
 	);
 };

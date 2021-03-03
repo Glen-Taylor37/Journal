@@ -8,17 +8,18 @@ import { Button } from '../../shared/Button';
 
 export const GridDiv = styled(BaseContentDiv)`
 	display: grid;
-	grid-template-columns: 10% 65% 1fr;
+	grid-template-columns: 15% 70% 15%;
 `;
 
 export const JournalDiv = styled.div`
-	height 80%; 
-	width 100%;
-	align-self: start;
+	height 100%; 
+	width 80%;
+	justify-self: center;
 `;
 export const EditorDiv = styled(ReactQuill)`
 	box-shadow: 4px 4px 8px 2px ${colors.blackShadow};
 	border-radius: 6px;
+    min-height: 400px;
 
     transition: width 2s;
 `;
@@ -38,8 +39,6 @@ export const EntriesTitleDiv = styled.h3`
 export const EntriesDiv = styled.div`
 	height: 80%;
 	width: 80%;
-	justify-self: center;
-	padding-left: 5px;
 	background-color: ${colors.blue};
 	box-shadow: 0px 2px 4px 2px ${colors.blackShadow};
 `;
@@ -47,6 +46,8 @@ export const EntriesDiv = styled.div`
 export const EntryDiv = styled.div`
 	background-color: ${colors.blue};
 	transition: background-color .2s;
+	margin-bottom: 5px;
+	width: 100%;
 	&:hover {
 		background-color: ${colors.brightBlue};
 	}

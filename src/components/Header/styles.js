@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components/macro';
 import colors from '../shared/colors';
 
-const HeaderItemDiv = styled.div`width: 100%;`;
+const HeaderItemDiv = styled.div`
+	display: inline-grid;
+	grid-template-columns: 15% 70% 15%;
+	width: 100%;
+`;
 
 export const HeaderDiv = styled.div`
 	width: 100%;
@@ -11,14 +15,25 @@ export const HeaderDiv = styled.div`
 	height: 100px;
 `;
 
-export const TitleDiv = styled(HeaderItemDiv)`
-	color: ${colors.white};
+export const OuterTitleDiv = styled(HeaderItemDiv)`
+	display: inline-grid;
+	grid-template-columns: 15% 70% 15%;
+	width: 100%;
 	background-color: ${colors.blue};
-	font-size: x-large;
+`;
 
-    & > div {
-        padding-left: 15px;
-    }
+export const OuterNavDiv = styled(HeaderItemDiv)`
+	width: 100%;
+	background-color: ${colors.white};
+    box-shadow: 2px 2px 2px 1px ${colors.blackShadow};
+`;
+
+export const TitleDiv = styled.div`
+	grid-column-start: 2;
+	background: none;
+	width: 70%;
+	color: ${colors.white};
+	font-size: x-large;
 `;
 
 export const H1 = styled.h1`
@@ -30,12 +45,11 @@ export const H1 = styled.h1`
 
 export const NavDiv = styled(HeaderItemDiv)`
 	display: flex;
+	grid-column-start: 2;
 	flex-flow: row nowrap;
 	align-items: baseline;
 	justify-content: space-between;
     font-size: large;
-    background-color: ${colors.white};
-    box-shadow: 2px 2px 2px 1px ${colors.blackShadow};
     z-index: 2;
     & > div {
         padding-left: 40px;

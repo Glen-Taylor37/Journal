@@ -53,7 +53,7 @@ export const deleteJournal = (journalId) => async (dispatch) => {
 
 export const updateJournal = (journalId, journal) => async (dispatch) => {
 	console.log('values', journal);
-	const { data } = await journals.put(`/journals/${journalId}`, journal);
+	const { data } = await journals.patch(`/journals/${journalId}`, journal);
 	console.log('data: ', data);
 	dispatch({ type: UPDATE_JOURNAL, payload: data.value });
 	history.push(`/journals/${journalId}`);

@@ -6,6 +6,8 @@ import { Button } from '../../shared/Button';
 export const Title = styled.h1`
 	margin: 0;
 	margin-bottom: 10px;
+	width: 100%;
+	text-align: center;
 `;
 
 export const JournalTitle = styled.h4`
@@ -15,8 +17,9 @@ export const JournalTitle = styled.h4`
 
 export const JournalListDiv = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 200px);
+	grid-template-columns: repeat(auto-fit, 200px);
 	grid-auto-rows: 200px;
+	justify-content: center;
 	column-gap: 10px;
 	row-gap: 10px;
 	flex-grow: 1;
@@ -81,6 +84,7 @@ export const JournalLinkDiv = styled.div`
 `;
 
 export const CreateButton = styled(Button)`
+	align-self: center;
 	width: 100px;
 	height: 40px;
 	background-color: ${colors.green};
