@@ -5,8 +5,8 @@ export const buttonStyle = css`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: none;
 	border-radius: 6px;
-	border: solid 2px ${colors.black};
 	height: 100%;
 	width: 100px;
 	font-family: inherit;
@@ -14,6 +14,7 @@ export const buttonStyle = css`
 	font-weight: bold;
 	color: ${colors.black};
 	text-decoration: none;
+	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};
 
 	transition: filter .2s;
 	&:hover {
