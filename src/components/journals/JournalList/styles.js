@@ -27,9 +27,20 @@ export const JournalListDiv = styled.div`
 	padding-bottom: 10px;
 `;
 
+export const EmptyJournalDiv = styled.div`
+	background: none;
+	border-radius: 10px;
+	grid-column-start: span 1;
+	grid-row-start: span 1;
+	display: flex;
+	flex-direction: column;
+	border: 2px dashed ${colors.black};
+	justify-content: center;
+`;
+
 export const JournalDiv = styled.div`
 	background-color: ${colors.white};
-	border-radius: 10px;
+	border-radius: 4px;
 	grid-column-start: span 1;
 	grid-row-start: span 1;
 	box-shadow: 0px 2px 4px 2px ${colors.blackShadow};
@@ -53,10 +64,9 @@ export const JournalDiv = styled.div`
 export const DeleteButton = styled(Button)`
 	align-self: flex-end;
 	border: none;
-	padding: 0;
 	margin-right: 10px;
-	height: 20%;
-	width: 30%;
+	height: 2em;
+	width: fit-content;
 	font-size: regular;
 	background-color: ${colors.brightRed};
 	color: ${colors.black};
@@ -85,9 +95,8 @@ export const JournalLinkDiv = styled.div`
 
 export const CreateButton = styled(Button)`
 	align-self: center;
-	width: 100px;
-	height: 40px;
-	background-color: ${colors.green};
+	background-color: ${colors.brightBlue};
+	color: ${colors.white};
 	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};
 	border: none;
 
@@ -100,9 +109,9 @@ export const CreateButton = styled(Button)`
 export const BannerDiv = styled.div`
 	background-color: ${colors.blue};
 	align-self: center;
-	margin-top: 10px;
+	margin-top: 5px;
 	width: 95%;
-	height: 15%;
-	border-radius: 6px;
+	height: 10%;
+	border-radius: 4px;
 	transition: background-color .2s;
 `;

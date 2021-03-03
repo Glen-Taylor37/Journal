@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { JournalDiv, PostButton, EditorDiv } from './styles';
+import { JournalDiv, PostButton, StyledQuill } from './styles';
 
 const toolbarOptions = [
 	[ 'bold', 'italic', 'underline', 'strike' ], // toggled buttons
@@ -64,7 +64,7 @@ class EntryShow extends React.Component {
 		console.log('value to render: ', this.state.text);
 		return (
 			<JournalDiv>
-				<EditorDiv
+				<StyledQuill
 					theme={this.props.readOnly ? 'bubble' : 'snow'}
 					value={this.state.text}
 					onChange={this.handleChange}

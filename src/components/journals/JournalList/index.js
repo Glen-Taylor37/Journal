@@ -5,7 +5,13 @@ import _ from 'lodash';
 
 import { getJournals } from '../../../actions';
 import ContentDiv from '../../shared/ContentDiv';
-import { Title, JournalListDiv, JournalDiv, CreateButton } from './styles';
+import {
+	Title,
+	JournalListDiv,
+	JournalDiv,
+	CreateButton,
+	EmptyJournalDiv
+} from './styles';
 import JournalCreate from '../JournalCreate';
 import JournalDelete from '../JournalDelete';
 import JournalListItem from './JournalListItem';
@@ -65,9 +71,6 @@ class JournalList extends React.Component {
 	render() {
 		return (
 			<ContentDiv>
-				<Title>Journal List</Title>
-				<br />
-				<CreateButton onClick={this.onCreateClick}>Create</CreateButton>
 				<JournalCreate
 					onDismiss={this.closeCreateModal}
 					onSubmit={this.closeCreateModal}
@@ -84,7 +87,14 @@ class JournalList extends React.Component {
 					}
 				/>
 
-				<JournalListDiv>{this.renderJournalList()}</JournalListDiv>
+				<JournalListDiv>
+					{this.renderJournalList()}
+					<EmptyJournalDiv>
+						<CreateButton onClick={this.onCreateClick}>
+							Create
+						</CreateButton>
+					</EmptyJournalDiv>
+				</JournalListDiv>
 			</ContentDiv>
 		);
 	}

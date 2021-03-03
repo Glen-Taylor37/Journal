@@ -16,11 +16,10 @@ export const JournalDiv = styled.div`
 	width 80%;
 	justify-self: center;
 `;
-export const EditorDiv = styled(ReactQuill)`
-	box-shadow: 4px 4px 8px 2px ${colors.blackShadow};
-	border-radius: 6px;
-    min-height: 400px;
-
+export const StyledQuill = styled(ReactQuill)`
+	box-shadow: 0px 2px 4px 2px ${colors.blackShadow};
+	border-radius: 4px;
+    height: 80%;
     transition: width 2s;
 `;
 

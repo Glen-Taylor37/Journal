@@ -15,7 +15,7 @@ import colors from './shared/colors';
 const AppDiv = styled.div`
 	display: flex;
 	flex-direction: column;
-	font-family: Montserrat;
+	font-family: 'Roboto', sans-serif;
 	height: 100%;
 	width: 100%;
 `;

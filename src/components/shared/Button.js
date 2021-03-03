@@ -7,8 +7,10 @@ export const buttonStyle = css`
 	justify-content: center;
 	border: none;
 	border-radius: 6px;
-	height: 100%;
-	width: 100px;
+	height: 2em;
+	width: fit-content;
+	padding-left: 4px;
+	padding-right: 4px;
 	font-family: inherit;
 	font-size: 13.3px;
 	font-weight: bold;

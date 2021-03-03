@@ -12,7 +12,6 @@ export default createGlobalStyle`
     }
 
     .ql-toolbar {
-        box-shadow: 4px 1px 8px 1px ${colors.blackShadow};
-        border-radius: 6px;
+        border-radius: 4px;
     }
 `;

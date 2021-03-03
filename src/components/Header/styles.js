@@ -58,7 +58,6 @@ export const NavDiv = styled(HeaderItemDiv)`
 
 export const Button = styled.button`
 	height: 100%;
-	width: auto;
 	border: none;
 	outline: none;
 	box-shadow: none;
@@ -68,6 +67,9 @@ export const Button = styled.button`
 	text-decoration: none;
 	background-color: ${colors.white};
 
+	& > i {
+		padding-right: 5px;
+	}
 	&:hover {
 		filter: brightness(85%);
 	}

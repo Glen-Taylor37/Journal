@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { signIn, signOut } from '../../actions';
+import { signIn, signOut, getSettings } from '../../actions';
 import { Button, RedButton } from './styles';
 
 class GoogleSignIn extends React.Component {
@@ -40,6 +40,7 @@ class GoogleSignIn extends React.Component {
 			this.props.signIn(
 				this.authInstance.currentUser.get().getBasicProfile()
 			);
+			this.props.getSettings();
 		} else {
 			this.props.signOut();
 		}
@@ -70,4 +71,6 @@ const mapStateToProps = (state, ownProps) => {
 	return { user: state.user };
 };
 
-export default connect(mapStateToProps, { signIn, signOut })(GoogleSignIn);
+export default connect(mapStateToProps, { signIn, signOut, getSettings })(
+	GoogleSignIn
+);
