@@ -6,7 +6,9 @@ import {
 	UPDATE_JOURNAL,
 	SIGN_IN,
 	SIGN_OUT,
-	TOGGLE_DARKMODE
+	TOGGLE_DARKMODE,
+	GET_SETTINGS,
+	SAVE_SETTINGS
 } from './types';
 import history from '../history';
 import journals from '../apis/journals';
@@ -57,6 +59,16 @@ export const updateJournal = (journalId, journal) => async (dispatch) => {
 	history.push(`/journals/${journalId}`);
 };
 
-export const ToggleDarkMode = (mode) => {
+export const toggleDarkMode = (mode) => {
 	return { type: TOGGLE_DARKMODE, payload: mode };
+};
+
+export const getSettings = (userId) => async (dispatch) => {
+	const { data } = await journals.get(`/settings/${userId}`);
+	dispatch({ type: GET_SETTINGS, payload: data.value });
+};
+
+export const saveSettings = (userId, settings) => async (dispatch) => {
+	const { data } = await journals.put(`/settings/${userId}`, settings);
+	dispatch({ type: SAVE_SETTINGS, payload: data.value });
 };

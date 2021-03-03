@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import ContentDiv from '../../shared/ContentDiv';
 import colors from '../../shared/colors';
+import { Button } from '../../shared/Button';
 
-export const Title = styled.h3`
-	font-size: 30px;
+export const Title = styled.h1`
 	margin: 0;
 	margin-bottom: 10px;
+`;
+
+export const JournalTitle = styled.h4`
+	margin-top: 5px;
+	margin-bottom: 5px;
 `;
 
 export const JournalListDiv = styled.div`
@@ -20,47 +25,54 @@ export const JournalListDiv = styled.div`
 `;
 
 export const JournalDiv = styled.div`
-	background-color: ${colors.blue};
+	background-color: ${colors.white};
 	border-radius: 10px;
-	border: 2px solid ${colors.black};
 	grid-column-start: span 1;
 	grid-row-start: span 1;
-	box-shadow: 2px 2px 2px 2px ${colors.blackShadow};
+	box-shadow: 0px 2px 4px 2px ${colors.blackShadow};
 
 	display: flex;
 	text-decoration: none;
 	flex-direction: column;
-	transition: background-color .2s, box-shadow .2s;
 	padding-bottom: 10px;
 	color: ${colors.black};
 
+	transition: background-color .2s, box-shadow .2s, filter .5s;
 	&:hover {
-		background-color: ${colors.brightBlue};
-		box-shadow: 0px 0px 30px 4px #0ff;
+		box-shadow: 0px 2px 4px 4px ${colors.blackShadow};
+		& > div {
+			transition: background-color .2s;
+			background-color: ${colors.brightBlue};
+		}
 	}
-
-	pointer-events: none;
 `;
 
-export const DeleteButton = styled.button`
-	align-self: flex-center;
+export const DeleteButton = styled(Button)`
+	align-self: flex-end;
+	border: none;
 	padding: 0;
-	margin: 0;
-	font-size: x-large;
+	margin-right: 10px;
+	height: 20%;
+	width: 30%;
+	font-size: regular;
+	background-color: ${colors.brightRed};
 	color: ${colors.black};
 	pointer-events: auto;
-	transition: color .2s;
+	overflow: hidden;
+
+	transition: background-color .2s;
 	&:hover {
-		color: ${colors.red};
+		background-color: ${colors.red};
 	}
 `;
 
 export const JournalLinkDiv = styled.div`
-	background-color: ${colors.darkerWhite};
 	border-radius: 10px;
-	border: 2px solid ${colors.black};
 	height: 100%;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-decoration: none;
 	color: ${colors.black};
 	pointer-events: auto;
@@ -68,8 +80,25 @@ export const JournalLinkDiv = styled.div`
 	width: 80%;
 `;
 
-export const CreateButton = styled.button`
+export const CreateButton = styled(Button)`
 	width: 100px;
 	height: 40px;
 	background-color: ${colors.green};
+	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};
+	border: none;
+
+	transition: box-shadow .2s;
+	&:hover {
+		box-shadow: 0px 2px 2px 2px ${colors.blackShadow};
+	}
+`;
+
+export const BannerDiv = styled.div`
+	background-color: ${colors.blue};
+	align-self: center;
+	margin-top: 10px;
+	width: 95%;
+	height: 15%;
+	border-radius: 6px;
+	transition: background-color .2s;
 `;
