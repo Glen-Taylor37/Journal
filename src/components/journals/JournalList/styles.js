@@ -132,8 +132,8 @@ const hover = keyframes`
 	}
 	to {
 		background-color: ${colors.white};
-		width: 60%;
-		height: 60%;
+		width: 55%;
+		height: 55%;
 	}
 
 `;
@@ -147,7 +147,7 @@ export const OutlineDiv = styled.div`
 	border-radius: 4px;
 
 	&:hover {
-		animation: ${hover} 1s ease-in-out 0 1 alternate;
+		animation: ${hover} .1s ease-in-out 2 alternate;
 	}
 `;
 
