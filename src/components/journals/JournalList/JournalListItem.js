@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { deleteJournal } from '../../../actions';
 
 import {
 	JournalDiv,
@@ -15,8 +16,8 @@ import JournalDelete from '../JournalDelete';
 
 class JournalListItem extends React.Component {
 	onDeleteClick = (event) => {
-		console.log(event);
 		event.stopPropagation();
+		this.props.deleteJournal(this.props.journal._id);
 	};
 
 	render() {
@@ -47,4 +48,4 @@ const mapStateToProps = (state, ownProps) => {
 	return { journal: state.journals[ownProps.journalId] };
 };
 
-export default connect(mapStateToProps, {})(JournalListItem);
+export default connect(mapStateToProps, { deleteJournal })(JournalListItem);

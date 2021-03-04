@@ -1,5 +1,6 @@
 import {
 	CREATE_JOURNAL,
+	DELETE_JOURNAL,
 	GET_JOURNAL,
 	GET_JOURNALS,
 	UPDATE_JOURNAL
@@ -22,6 +23,8 @@ export default (state = {}, action) => {
 			return { ...state, [action.payload._id]: action.payload };
 		case UPDATE_JOURNAL:
 			return { ...state, [action.payload._id]: action.payload };
+		case DELETE_JOURNAL:
+			return _.omit(state, action.payload);
 		default:
 			return state;
 	}

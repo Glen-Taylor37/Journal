@@ -56,17 +56,18 @@ export const JournalDiv = styled.div`
 `;
 
 export const DeleteButton = styled(Button)`
-	align-self: flex-end;
-	border: none;
-	background: none;
-	margin-right: 10px;
 	height: 2em;
 	width: fit-content;
-	font-size: regular;
-	box-shadow: none;
+	align-self: flex-end;
+	margin-right: 10px;
 	color: ${colors.red};
+	font-size: regular;
+	background: none;
+	border: none;
+	box-shadow: none;
 	pointer-events: auto;
 	opacity: 0.0;
+	outline: none;
 
 	transition: background-color .2s, opacity .5s;
 	&:hover {
