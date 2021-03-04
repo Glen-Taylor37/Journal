@@ -5,7 +5,7 @@ import { getJournal, updateJournal } from '@actions';
 import EntryShow from './EntryShow';
 import { GridDiv } from './styles';
 
-import EntriesList from './EntriesList';
+import EntryList from './EntryList';
 
 class JournalShow extends React.Component {
 	constructor(props) {
@@ -42,10 +42,7 @@ class JournalShow extends React.Component {
 
 		return (
 			<GridDiv>
-				<EntriesList
-					onEntryClick={this.onEntryClick}
-					journal={journal}
-				/>
+				<EntryList onEntryClick={this.onEntryClick} journal={journal} />
 				<EntryShow
 					journalId={journal._id}
 					text={entry ? entry.text : ''}

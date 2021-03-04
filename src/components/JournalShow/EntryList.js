@@ -2,7 +2,7 @@ import React from 'react';
 
 import { EntriesTitleDiv, EntriesDiv, EntryDiv, EntryLink } from './styles';
 
-const EntriesList = (props) => {
+const EntryList = (props) => {
 	const { journal } = props;
 
 	const renderList = () => {
@@ -32,4 +32,4 @@ const EntriesList = (props) => {
 	);
 };
 
-export default EntriesList;
+export default EntryList;

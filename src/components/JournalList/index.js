@@ -10,8 +10,8 @@ import {
 	EmptyJournalDiv,
 	OutlineDiv
 } from './styles';
-import JournalCreate from '../JournalCreate';
-import JournalDelete from '../JournalDelete';
+import JournalCreate from './JournalCreate';
+import JournalDelete from './JournalDelete';
 import JournalListItem from './JournalListItem';
 
 class JournalList extends React.Component {

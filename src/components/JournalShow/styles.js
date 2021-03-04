@@ -8,7 +8,7 @@ import { Button } from '@shared/Button';
 
 export const GridDiv = styled(BaseContentDiv)`
 	display: grid;
-	grid-template-columns: 15% 70% 15%;
+	grid-template-columns: 20% 60% 20%;
 `;
 
 export const JournalDiv = styled.div`
