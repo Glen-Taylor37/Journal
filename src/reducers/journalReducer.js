@@ -7,7 +7,7 @@ import {
 } from '../actions/types';
 import _ from 'lodash';
 
-export default (state = {}, action) => {
+const journalReducer = (state = {}, action) => {
 	switch (action.type) {
 		case GET_JOURNALS:
 			return {
@@ -29,3 +29,5 @@ export default (state = {}, action) => {
 			return state;
 	}
 };
+
+export default journalReducer;

@@ -4,7 +4,8 @@
       "paths": {
           "@shared" : ["./components/shared"],
           "@colors" : ["./components/shared/colors"],
-          "@actions" : ["./actions/index"]
+          "@actions" : ["./actions/index"],
+          "@apis" : ["./apis"]
       }
     },
     "include": ["src"],

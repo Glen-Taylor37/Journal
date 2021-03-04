@@ -11,7 +11,7 @@ import {
 	SAVE_SETTINGS
 } from './types';
 import history from '../history';
-import journals from '../apis/journals';
+import journals from '@apis/journals';
 
 export const signIn = (basicProfile) => {
 	return { type: SIGN_IN, payload: basicProfile };

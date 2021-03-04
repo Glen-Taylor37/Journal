@@ -1,6 +1,6 @@
 import { SIGN_IN, SIGN_OUT } from '../actions/types';
 
-export default (state = {}, action) => {
+const userAuthReducer = (state = {}, action) => {
 	switch (action.type) {
 		case SIGN_IN:
 			return {
@@ -16,3 +16,5 @@ export default (state = {}, action) => {
 			return state;
 	}
 };
+
+export default userAuthReducer;

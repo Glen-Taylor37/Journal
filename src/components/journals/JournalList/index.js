@@ -1,18 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import { getJournals } from '@actions';
 import ContentDiv from '@shared/ContentDiv';
 import {
-	Title,
 	JournalListDiv,
-	JournalDiv,
 	CreateButton,
 	EmptyJournalDiv,
-	OutlineDiv,
-	BannerDiv
+	OutlineDiv
 } from './styles';
 import JournalCreate from '../JournalCreate';
 import JournalDelete from '../JournalDelete';

@@ -23,8 +23,6 @@ const StyledInput = styled.input`
 	outline: none;
 `;
 
-const Form = styled.form``;
-
 class JournalCreate extends React.Component {
 	state = { title: '' };
 

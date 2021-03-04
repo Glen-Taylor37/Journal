@@ -1,4 +1,4 @@
-export default {
+const colors = {
 	white        : `rgb(253, 255, 249)`,
 	darkerWhite  : `rgb(243, 245, 241)`,
 	blackShadow  : `rgba(0, 0, 0, 0.5)`,
@@ -14,3 +14,4 @@ export default {
 
 export const LIGHT_THEME = 'LIGHT_THEME';
 export const DARK_THEME = 'DARK_THEME';
+export default colors;

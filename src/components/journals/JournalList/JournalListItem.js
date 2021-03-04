@@ -12,7 +12,6 @@ import {
 	ViewButton,
 	DetailDiv
 } from './styles';
-import JournalDelete from '../JournalDelete';
 
 class JournalListItem extends React.Component {
 	onDeleteClick = (event) => {

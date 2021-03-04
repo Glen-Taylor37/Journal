@@ -1,6 +1,6 @@
 import { TOGGLE_DARKMODE, GET_SETTINGS, SAVE_SETTINGS } from '../actions/types';
 
-export default (state = {}, action) => {
+const settingsReducer = (state = {}, action) => {
 	switch (action.type) {
 		case TOGGLE_DARKMODE:
 			return { ...state, theme: action.payload };
@@ -12,3 +12,5 @@ export default (state = {}, action) => {
 			return state;
 	}
 };
+
+export default settingsReducer;

@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import ContentDiv from '@shared/ContentDiv';
 import colors from '@colors';
 import { Button } from '@shared/Button';
 
