@@ -5,14 +5,15 @@ export const buttonStyle = css`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: none;
-	border-radius: 4px;
 	height: 2em;
 	width: fit-content;
+	border: none;
+	border-radius: 4px;
+	outline: none;
 	padding-left: 4px;
 	padding-right: 4px;
 	font-family: inherit;
-	font-size: 13.3px;
+	font-size: regular;
 	font-weight: regular;
 	color: ${colors.black};
 	text-decoration: none;

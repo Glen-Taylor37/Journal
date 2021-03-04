@@ -15,10 +15,9 @@ const OutsideDiv = styled.div`
 
 const ModalDiv = styled.div`
 	border: rgb(37, 36, 36) solid 1px;
-	border-radius: 6px;
-	box-shadow: 1px 2px 4px 2px #1c0527;
+	border-radius: 4px;
 	background-color: ${colors.white};
-	font-family: 'Montserrat';
+	font-family: 'Roboto', sans-serif;
 	text-align: center;
 	border: 0;
 	padding: 10px;
@@ -29,11 +28,7 @@ const ModalDiv = styled.div`
 	transform: translate(-50%, -50%);
 `;
 
-const HeaderDiv = styled.div`
-	font-weight: bold;
-	text-decoration: underline;
-	margin-bottom: 5px;
-`;
+const HeaderDiv = styled.div`margin-bottom: 5px;`;
 
 const ContentDiv = styled.div``;
 
