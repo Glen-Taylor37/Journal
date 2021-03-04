@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/macro';
-import colors from '../shared/colors';
+import colors from '@colors';
 
 const HeaderItemDiv = styled.div`
 	display: inline-grid;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import colors from './colors';
+import colors from '@colors';
 
 const OutsideDiv = styled.div`
 	position: fixed;

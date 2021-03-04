@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Modal from '../shared/Modal';
-import { deleteJournal } from '../../actions';
+import Modal from '@shared/Modal';
+import { deleteJournal } from '@actions';
 import history from '../../history';
 
 class JournalDelete extends React.Component {

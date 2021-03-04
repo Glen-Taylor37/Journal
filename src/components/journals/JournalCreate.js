@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Modal from '../shared/Modal';
+import Modal from '@shared/Modal';
 import history from '../../history';
-import { createJournal } from '../../actions';
-import { buttonStyle } from '../shared/Button';
-import colors from '../shared/colors';
+import { createJournal } from '@actions';
+import { buttonStyle } from '@shared/Button';
+import colors from '@colors';
 
 const SubmitButton = styled.input`
 	${buttonStyle};

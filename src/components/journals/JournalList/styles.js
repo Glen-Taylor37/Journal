@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
-import ContentDiv from '../../shared/ContentDiv';
-import colors from '../../shared/colors';
-import { Button } from '../../shared/Button';
+import ContentDiv from '@shared/ContentDiv';
+import colors from '@colors';
+import { Button } from '@shared/Button';
 
 export const Title = styled.h1`
 	margin: 0;

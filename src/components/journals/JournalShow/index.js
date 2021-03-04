@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getJournal, updateJournal } from '../../../actions';
+import { getJournal, updateJournal } from '@actions';
 import editor, { readableEditor } from '../../../apis/editor';
 import EntryShow from './EntryShow';
 import {

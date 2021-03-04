@@ -3,14 +3,13 @@ import { Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './Header/';
-import JournalList from './journals/JournalList/';
+import JournalList from './journals/JournalList';
 import JournalCreate from './journals/JournalCreate';
 import JournalShow from './journals/JournalShow/';
-import EntryShow from './journals/JournalShow/EntryShow';
 import history from '../history';
-import GlobalStyles from './shared/GlobalStyle';
-import GlobalFonts from './shared/fonts';
-import colors from './shared/colors';
+import GlobalStyles from '@shared/GlobalStyle';
+import GlobalFonts from '@shared/fonts';
+import colors from '@colors';
 
 const AppDiv = styled.div`
 	display: flex;

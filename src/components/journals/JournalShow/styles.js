@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import ReactQuill from 'react-quill';
 import { Link } from 'react-router-dom';
 
-import colors from '../../shared/colors';
-import { BaseContentDiv } from '../../shared/ContentDiv';
-import { Button } from '../../shared/Button';
+import colors from '@colors';
+import { BaseContentDiv } from '@shared/ContentDiv';
+import { Button } from '@shared/Button';
 
 export const GridDiv = styled(BaseContentDiv)`
 	display: grid;

@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { toggleDarkMode } from '../../actions';
-import { LIGHT_THEME, DARK_THEME } from '../shared/colors';
+import { toggleDarkMode } from '@actions';
+import { LIGHT_THEME, DARK_THEME } from '@colors';
 
 const Settings = (props) => {};
 

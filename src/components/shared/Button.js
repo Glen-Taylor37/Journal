@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import colors from './colors';
+import colors from '@colors';
 
 export const buttonStyle = css`
 	display: flex;

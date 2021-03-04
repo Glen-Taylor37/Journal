@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+          "@shared" : ["./components/shared"],
+          "@colors" : ["./components/shared/colors"],
+          "@actions" : ["./actions/index"]
+      }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "**/node_modules/*", "build"]
+  }

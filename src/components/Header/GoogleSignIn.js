@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { signIn, signOut, getSettings } from '../../actions';
+import { signIn, signOut, getSettings } from '@actions';
 import { Button, RedButton } from './styles';
 
 class GoogleSignIn extends React.Component {

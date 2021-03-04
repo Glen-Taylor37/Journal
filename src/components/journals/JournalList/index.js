@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
-import { getJournals } from '../../../actions';
-import ContentDiv from '../../shared/ContentDiv';
+import { getJournals } from '@actions';
+import ContentDiv from '@shared/ContentDiv';
 import {
 	Title,
 	JournalListDiv,
