@@ -3,17 +3,16 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Modal from '@shared/Modal';
-import history from '../../history';
+import history from '../history';
 import { createJournal } from '@actions';
 import { buttonStyle } from '@shared/Button';
-import colors from '@colors';
 
 const SubmitButton = styled.input`
 	${buttonStyle};
 	display: inline;
 	margin-left: 5px;
-	background-color: ${colors.brightBlue};
-	color: ${colors.white};
+	background-color: ${(props) => props.theme.brightAccent};
+	color: ${(props) => props.theme.foreText};
 `;
 
 const StyledInput = styled.input`

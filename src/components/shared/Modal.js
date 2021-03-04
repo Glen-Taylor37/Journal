@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import colors from '@colors';
 
 const OutsideDiv = styled.div`
 	position: fixed;
@@ -10,13 +9,13 @@ const OutsideDiv = styled.div`
 	margin: 0;
 	top: 0;
 	left: 0;
-	background-color: rgba(31, 29, 41, 0.678);
+	background-color: ${(props) => props.theme.modalBackground};
 `;
 
 const ModalDiv = styled.div`
 	border: rgb(37, 36, 36) solid 1px;
 	border-radius: 4px;
-	background-color: ${colors.white};
+	background-color: ${(props) => props.theme.foreground};
 	font-family: 'Roboto', sans-serif;
 	text-align: center;
 	border: 0;

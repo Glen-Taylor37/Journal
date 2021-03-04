@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import colors from '@colors';
+
 import { Button } from '@shared/Button';
 
 export const Title = styled.h1`
@@ -28,24 +28,24 @@ export const JournalListDiv = styled.div`
 `;
 
 export const JournalDiv = styled.div`
-	background-color: ${colors.white};
+	background-color: ${(props) => props.theme.foreground};
 	border-radius: 4px;
 	grid-column-start: span 1;
 	grid-row-start: span 1;
-	box-shadow: 0px 2px 4px 2px ${colors.blackShadow};
+	box-shadow: 0px 2px 4px 2px ${(props) => props.theme.foregroundShadow};
 
 	display: flex;
 	text-decoration: none;
 	flex-direction: column;
 	padding-bottom: 10px;
-	color: ${colors.black};
+	color: ${(props) => props.theme.foreText};
 
 	transition: background-color .2s, box-shadow .2s, filter .5s;
 	&:hover {
-		box-shadow: 0px 2px 4px 4px ${colors.blackShadow};
+		box-shadow: 0px 2px 4px 4px ${(props) => props.theme.foregroundShadow};
 		& > div {
 			transition: background-color .2s;
-			background-color: ${colors.brightBlue};
+			background-color: ${(props) => props.theme.brightAccent};
 		}
 
 		button {
@@ -59,7 +59,7 @@ export const DeleteButton = styled(Button)`
 	width: fit-content;
 	align-self: flex-end;
 	margin-right: 10px;
-	color: ${colors.red};
+	color: ${(props) => props.theme.red};
 	font-size: regular;
 	background: none;
 	border: none;
@@ -70,8 +70,8 @@ export const DeleteButton = styled(Button)`
 
 	transition: background-color .2s, opacity .5s;
 	&:hover {
-		background-color: ${colors.red};
-		color: ${colors.black};
+		background-color: ${(props) => props.theme.red};
+		color: ${(props) => props.theme.foreText};
 	}
 `;
 
@@ -86,7 +86,7 @@ export const ViewButton = styled(Button)`
 	width: fit-content;
 	font-size: regular;
 	box-shadow: none;
-	color: ${colors.brightBlue};
+	color: ${(props) => props.theme.brightAccent};
 	outline: none;
 	opacity: 0.0;
 	cursor: pointer; 
@@ -101,7 +101,7 @@ export const JournalLinkDiv = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	text-decoration: none;
-	color: ${colors.black};
+	color: ${(props) => props.theme.foreText};
 	pointer-events: auto;
 	align-self: center;
 	width: 80%;
@@ -125,12 +125,12 @@ export const EmptyJournalDiv = styled.div`
 
 const hover = keyframes`
 	from {
-		background-color: ${colors.darkerWhite}
+		background-color: ${(props) => props.theme.background}
 		width: 50%;
 		height: 50%;
 	}
 	to {
-		background-color: ${colors.white};
+		background-color: ${(props) => props.theme.foreground};
 		width: 55%;
 		height: 55%;
 	}
@@ -141,8 +141,8 @@ export const OutlineDiv = styled.div`
 	grid-area: 1 / 1 / 1 / 1;
 	width: 50%;
 	height: 50%;
-	background-color: ${colors.darkerWhite};
-	border: dashed 2px ${colors.blue};
+	background-color: ${(props) => props.theme.background};
+	border: dashed 2px ${(props) => props.theme.accent};
 	border-radius: 4px;
 
 	&:hover {
@@ -152,18 +152,18 @@ export const OutlineDiv = styled.div`
 
 export const CreateButton = styled(Button)`
 	grid-area: 1 / 1 / 1 / 1;
-	background-color: ${colors.brightBlue};
-	color: ${colors.white};
-	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};
+	background-color: ${(props) => props.theme.brightAccent};
+	color: ${(props) => props.theme.foreText};
+	box-shadow: 0px 2px 2px 1px ${(props) => props.theme.foregroundShadow};
 	border: none;
 	transition: box-shadow .2s;
 	&:hover {
-		box-shadow: 0px 2px 2px 2px ${colors.blackShadow};
+		box-shadow: 0px 2px 2px 2px ${(props) => props.theme.foregroundShadow};
 	}
 `;
 
 export const BannerDiv = styled.div`
-	background-color: ${colors.blue};
+	background-color: ${(props) => props.theme.accent};
 	align-self: center;
 	margin-top: 5px;
 	width: 95%;

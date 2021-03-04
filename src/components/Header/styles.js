@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import colors from '@colors';
 
 const HeaderItemDiv = styled.div`
 	display: inline-grid;
@@ -19,20 +18,20 @@ export const OuterTitleDiv = styled(HeaderItemDiv)`
 	display: inline-grid;
 	grid-template-columns: 25% 50% 25%;
 	width: 100%;
-	background-color: ${colors.blue};
+	background-color: ${(props) => props.theme.accent};
 `;
 
 export const OuterNavDiv = styled(HeaderItemDiv)`
 	width: 100%;
-	background-color: ${colors.white};
-    box-shadow: 2px 2px 2px 1px ${colors.blackShadow};
+	background-color: ${(props) => props.theme.foreground};
+    box-shadow: 2px 2px 2px 1px ${(props) => props.theme.foregroundShadow};
 `;
 
 export const TitleDiv = styled.div`
 	grid-column-start: 2;
 	background: none;
 	width: 70%;
-	color: ${colors.white};
+	color: ${(props) => props.theme.foreText};
 	font-size: x-large;
 `;
 
@@ -65,8 +64,8 @@ export const Button = styled.button`
 	font-family: inherit;
 	display: inline;
 	text-decoration: none;
-	color: ${colors.black};
-	background-color: ${colors.white};
+	color: ${(props) => props.theme.foreText};
+	background-color: ${(props) => props.theme.foreground};
 
 	& > i {
 		padding-right: 5px;
@@ -77,7 +76,7 @@ export const Button = styled.button`
 `;
 
 export const RedButton = styled(Button)`
-    background-color: ${colors.red}
+    background-color: ${(props) => props.theme.red}
 `;
 
 export const InnerNavDiv = styled.div`
@@ -86,7 +85,7 @@ export const InnerNavDiv = styled.div`
 `;
 
 export const Vl = styled.div`
-	border-right: 1px solid rgb(43, 30, 30);
+	border-right: 1px solid ${(props) => props.theme.foreText};
 	height: 80%;
 	padding-left: 10px;
 	margin-right: 10px;

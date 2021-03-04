@@ -14,13 +14,16 @@ import {
 	Vl
 } from './styles';
 
+import Div from '@shared/Div';
+import Icon from '@shared/Icon';
+
 const Header = (props) => {
 	const renderName = () => {
 		if (props.name) {
 			return (
 				<InnerNavDiv>
-					<i className="fas fa-user" />
-					{props.name}
+					<Icon className="fas fa-user" />
+					<Div>{props.name}</Div>
 					<Vl />
 				</InnerNavDiv>
 			);
@@ -42,7 +45,7 @@ const Header = (props) => {
 					</InnerNavDiv>
 					<InnerNavDiv>
 						<Button>
-							<i className="fas fa-cog" />Settings
+							<Icon className="fas fa-cog" />Settings
 						</Button>
 						<GoogleSignIn />
 					</InnerNavDiv>

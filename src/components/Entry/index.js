@@ -7,7 +7,7 @@ import { GridDiv } from './styles';
 
 import EntryList from './EntryList';
 
-class JournalShow extends React.Component {
+class Entry extends React.Component {
 	constructor(props) {
 		super(props);
 		this.editor = null;
@@ -58,6 +58,4 @@ const mapStateToProps = (state, ownProps) => {
 	return { journal: state.journals[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { getJournal, updateJournal })(
-	JournalShow
-);
+export default connect(mapStateToProps, { getJournal, updateJournal })(Entry);

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { signIn, signOut, getSettings } from '@actions';
 import { Button, RedButton } from './styles';
+import Icon from '@shared/Icon';
 
 class GoogleSignIn extends React.Component {
 	componentDidMount() {
@@ -50,13 +51,13 @@ class GoogleSignIn extends React.Component {
 		if (this.props.user.signedIn) {
 			return (
 				<RedButton onClick={this.onSignOutClick}>
-					<i className="fab fa-google" /> Sign Out
+					<Icon className="fab fa-google" /> Sign Out
 				</RedButton>
 			);
 		} else {
 			return (
 				<Button onClick={this.onSignInClick}>
-					<i className="fab fa-google" /> Sign in
+					<Icon className="fab fa-google" /> Sign in
 				</Button>
 			);
 		}

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import colors from '@colors';
 
 export const buttonStyle = css`
 	display: flex;
@@ -15,9 +14,9 @@ export const buttonStyle = css`
 	font-family: inherit;
 	font-size: regular;
 	font-weight: regular;
-	color: ${colors.black};
+	color: ${(props) => props.theme.foreText};
 	text-decoration: none;
-	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};
+	box-shadow: 0px 2px 2px 1px ${(props) => props.theme.foregroundShadow};
 
 	transition: filter .2s;
 	&:hover {

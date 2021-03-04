@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import colors from '@colors';
 
 const ContentDiv = styled.div`
 	padding-top: 40px;
 	padding-left: 40px;
 	padding-right: 40px;
-	background-color: ${colors.darkerWhite};
+	background-color: ${(props) => props.theme.background};
 	height: 100%;
 	display: flex;
 	width: 50%;
@@ -18,7 +17,7 @@ export const BaseContentDiv = styled(ContentDiv)`
 	padding-top: 40px;
 	padding-left: 40px;
 	padding-right: 40px;
-	background-color: ${colors.darkerWhite};
+	background-color: ${(props) => props.theme.background};
 	height: 100%;
 	width: 50%;
 	margin-top: 100px;

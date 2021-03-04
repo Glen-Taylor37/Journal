@@ -10,7 +10,7 @@ import {
 	EmptyJournalDiv,
 	OutlineDiv
 } from './styles';
-import JournalCreate from './JournalCreate';
+import JournalCreate from '../JournalCreate';
 import JournalDelete from './JournalDelete';
 import JournalListItem from './JournalListItem';
 

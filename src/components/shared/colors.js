@@ -12,6 +12,36 @@ const colors = {
 	green        : `rgb(140, 220, 120)`
 };
 
+export const lightTheme = {
+	background       : `rgb(245, 245, 243)`,
+	foreground       : `rgb(253, 253, 253)`,
+	foregroundShadow : `rgba(0, 0, 0, 0.5)`,
+	foreText         : `rgb(0,0,0,1)`,
+
+	accent           : `rgb(80, 91, 194)`,
+	brightAccent     : `rgb(120, 121, 244)`,
+
+	red              : `rgb(220, 70, 80)`,
+	brightRed        : `rgb(250, 130, 120)`,
+
+	modalBackground  : `rgba(31, 29, 41, 0.678)`
+};
+
+export const darkTheme = {
+	background       : `rgb(30, 30, 30)`,
+	foreground       : `rgb(37, 36, 37)`,
+	foregroundShadow : `rgba(0, 0, 0, 0.5)`,
+	foreText         : `rgb(255, 255, 255)`,
+
+	accent           : `rgb(30, 81, 74)`,
+	brightAccent     : `rgb(40, 98, 84)`,
+
+	red              : `rgb(220, 70, 80)`,
+	brightRed        : `rgb(250, 130, 120)`,
+
+	modalBackground  : `rgba(3, 5, 8, .678)`
+};
+
 export const LIGHT_THEME = 'LIGHT_THEME';
 export const DARK_THEME = 'DARK_THEME';
 export default colors;
