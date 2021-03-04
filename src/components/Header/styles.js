@@ -3,7 +3,7 @@ import colors from '../shared/colors';
 
 const HeaderItemDiv = styled.div`
 	display: inline-grid;
-	grid-template-columns: 15% 70% 15%;
+	grid-template-columns: 25% 50% 25%;
 	width: 100%;
 `;
 
@@ -17,7 +17,7 @@ export const HeaderDiv = styled.div`
 
 export const OuterTitleDiv = styled(HeaderItemDiv)`
 	display: inline-grid;
-	grid-template-columns: 15% 70% 15%;
+	grid-template-columns: 25% 50% 25%;
 	width: 100%;
 	background-color: ${colors.blue};
 `;
@@ -52,7 +52,7 @@ export const NavDiv = styled(HeaderItemDiv)`
     font-size: large;
     z-index: 2;
     & > div {
-        padding-left: 40px;
+        padding-left: 30px;
     }
 `;
 
@@ -65,6 +65,7 @@ export const Button = styled.button`
 	font-family: inherit;
 	display: inline;
 	text-decoration: none;
+	color: ${colors.black};
 	background-color: ${colors.white};
 
 	& > i {

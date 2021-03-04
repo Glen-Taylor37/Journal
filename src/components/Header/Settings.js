@@ -11,4 +11,4 @@ const mapStateToProps = (state) => {
 	return { settings: state.settings };
 };
 
-export default connect();
+export default connect(mapStateToProps);

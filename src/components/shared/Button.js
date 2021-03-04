@@ -6,14 +6,14 @@ export const buttonStyle = css`
 	align-items: center;
 	justify-content: center;
 	border: none;
-	border-radius: 6px;
+	border-radius: 4px;
 	height: 2em;
 	width: fit-content;
 	padding-left: 4px;
 	padding-right: 4px;
 	font-family: inherit;
 	font-size: 13.3px;
-	font-weight: bold;
+	font-weight: regular;
 	color: ${colors.black};
 	text-decoration: none;
 	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ContentDiv from '../../shared/ContentDiv';
 import colors from '../../shared/colors';
 import { Button } from '../../shared/Button';
@@ -11,8 +11,9 @@ export const Title = styled.h1`
 `;
 
 export const JournalTitle = styled.h4`
+	font-size: large;
 	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 `;
 
 export const JournalListDiv = styled.div`
@@ -25,17 +26,6 @@ export const JournalListDiv = styled.div`
 	flex-grow: 1;
 	margin-top: 10px;
 	padding-bottom: 10px;
-`;
-
-export const EmptyJournalDiv = styled.div`
-	background: none;
-	border-radius: 10px;
-	grid-column-start: span 1;
-	grid-row-start: span 1;
-	display: flex;
-	flex-direction: column;
-	border: 2px dashed ${colors.black};
-	justify-content: center;
 `;
 
 export const JournalDiv = styled.div`
@@ -58,25 +48,49 @@ export const JournalDiv = styled.div`
 			transition: background-color .2s;
 			background-color: ${colors.brightBlue};
 		}
+
+		button {
+			opacity: 1.0;
+		}
 	}
 `;
 
 export const DeleteButton = styled(Button)`
 	align-self: flex-end;
 	border: none;
+	background: none;
 	margin-right: 10px;
 	height: 2em;
 	width: fit-content;
 	font-size: regular;
-	background-color: ${colors.brightRed};
-	color: ${colors.black};
+	box-shadow: none;
+	color: ${colors.red};
 	pointer-events: auto;
-	overflow: hidden;
+	opacity: 0.0;
 
-	transition: background-color .2s;
+	transition: background-color .2s, opacity .5s;
 	&:hover {
 		background-color: ${colors.red};
+		color: ${colors.black};
 	}
+`;
+
+export const DetailDiv = styled.div`font-size: small;`;
+
+export const ViewButton = styled(Button)`
+	align-self: center;
+	margin: 0;
+	border: none;
+	background: none;
+	height: 2em;
+	width: fit-content;
+	font-size: regular;
+	box-shadow: none;
+	color: ${colors.brightBlue};
+	outline: none;
+	opacity: 0.0;
+	cursor: pointer; 
+	transition: background-color .2s, opacity .5s;
 `;
 
 export const JournalLinkDiv = styled.div`
@@ -93,13 +107,55 @@ export const JournalLinkDiv = styled.div`
 	width: 80%;
 `;
 
-export const CreateButton = styled(Button)`
+export const EmptyJournalDiv = styled.div`
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	background: none;
+	grid-column-start: span 1;
+	grid-row-start: span 1;
+	width: 100%;
+	height: 100%;
+	justify-self: center;
 	align-self: center;
+	box-shadow: 0px 0px 0px 0px;
+	text-align: center;
+	transition: background-color .5s, box-shadow .25s;
+`;
+
+const hover = keyframes`
+	from {
+		background-color: ${colors.darkerWhite}
+		width: 50%;
+		height: 50%;
+	}
+	to {
+		background-color: ${colors.white};
+		width: 60%;
+		height: 60%;
+	}
+
+`;
+
+export const OutlineDiv = styled.div`
+	grid-area: 1 / 1 / 1 / 1;
+	width: 50%;
+	height: 50%;
+	background-color: ${colors.darkerWhite};
+	border: dashed 2px ${colors.blue};
+	border-radius: 4px;
+
+	&:hover {
+		animation: ${hover} 1s ease-in-out 0 1 alternate;
+	}
+`;
+
+export const CreateButton = styled(Button)`
+	grid-area: 1 / 1 / 1 / 1;
 	background-color: ${colors.brightBlue};
 	color: ${colors.white};
 	box-shadow: 0px 2px 2px 1px ${colors.blackShadow};
 	border: none;
-
 	transition: box-shadow .2s;
 	&:hover {
 		box-shadow: 0px 2px 2px 2px ${colors.blackShadow};

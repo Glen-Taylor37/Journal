@@ -10,7 +10,9 @@ import {
 	JournalListDiv,
 	JournalDiv,
 	CreateButton,
-	EmptyJournalDiv
+	EmptyJournalDiv,
+	OutlineDiv,
+	BannerDiv
 } from './styles';
 import JournalCreate from '../JournalCreate';
 import JournalDelete from '../JournalDelete';
@@ -90,6 +92,7 @@ class JournalList extends React.Component {
 				<JournalListDiv>
 					{this.renderJournalList()}
 					<EmptyJournalDiv>
+						<OutlineDiv />
 						<CreateButton onClick={this.onCreateClick}>
 							Create
 						</CreateButton>

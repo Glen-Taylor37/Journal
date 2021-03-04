@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 import {
 	JournalDiv,
-	EmptyJournalDiv,
 	JournalLinkDiv,
 	DeleteButton,
 	JournalTitle,
-	BannerDiv
+	BannerDiv,
+	ViewButton,
+	DetailDiv
 } from './styles';
 import JournalDelete from '../JournalDelete';
 
@@ -30,7 +31,11 @@ class JournalListItem extends React.Component {
 					onClick={this.props.onClick}
 				>
 					<JournalTitle>{journal.title}</JournalTitle>
-					<div>{journal.date}</div>
+					<DetailDiv>
+						Entries: {`${journal.entries.length}`}
+					</DetailDiv>
+					<DetailDiv>{journal.date}</DetailDiv>
+					<ViewButton>View</ViewButton>
 				</JournalLinkDiv>
 				<DeleteButton onClick={this.onDeleteClick}>Delete</DeleteButton>
 			</JournalDiv>
