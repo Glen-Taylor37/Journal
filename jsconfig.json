@@ -3,7 +3,6 @@
       "baseUrl": "./src",
       "paths": {
           "@shared" : ["./components/shared"],
-          "@colors" : ["./components/shared/colors"],
           "@actions" : ["./actions"],
           "@apis" : ["./apis"]
       }

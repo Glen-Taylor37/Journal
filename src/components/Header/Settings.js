@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { toggleDarkMode } from '@actions';
-import { LIGHT_THEME, DARK_THEME } from '@colors';
+import { LIGHT_THEME, DARK_THEME } from '@shared/colors';
 import { NavButton } from './styles';
 import Icon from '@shared/Icon';
 

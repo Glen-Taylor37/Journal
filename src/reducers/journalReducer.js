@@ -4,7 +4,7 @@ import {
 	GET_JOURNAL,
 	GET_JOURNALS,
 	UPDATE_JOURNAL
-} from '../actions/types';
+} from '@actions/types';
 import _ from 'lodash';
 
 const journalReducer = (state = {}, action) => {

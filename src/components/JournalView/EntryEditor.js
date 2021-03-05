@@ -11,7 +11,7 @@ const EmptyDiv = styled.div`
 	margin: 0;
 `;
 
-class EntryShow extends React.Component {
+class EntryEditor extends React.Component {
 	constructor(props) {
 		super(props);
 		this.modules = {
@@ -69,4 +69,4 @@ class EntryShow extends React.Component {
 	}
 }
 
-export default EntryShow;
+export default EntryEditor;

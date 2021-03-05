@@ -136,8 +136,8 @@ const hover = keyframes`
 	}
 	to {
 		background-color: ${(props) => props.theme.foreground};
-		width: 55%;
-		height: 55%;
+		width: 53%;
+		height: 53%;
 	}
 
 `;

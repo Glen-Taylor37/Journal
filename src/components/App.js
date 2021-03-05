@@ -5,10 +5,10 @@ import styled, { ThemeProvider } from 'styled-components';
 import Header from './Header/';
 import JournalList from './JournalList';
 import JournalCreate from './JournalCreate';
-import Entry from './Entry';
+import JournalView from './JournalView';
 import history from '../history';
 import GlobalStyles from '@shared/GlobalStyle';
-import { lightTheme, darkTheme } from '@colors';
+import { lightTheme, darkTheme } from '@shared/colors';
 
 const AppDiv = styled.div`
 	display: flex;
@@ -41,11 +41,15 @@ const App = () => {
 							exact
 							component={JournalCreate}
 						/>
-						<Route path="/journals/:id" exact component={Entry} />
+						<Route
+							path="/journals/:id"
+							exact
+							component={JournalView}
+						/>
 						<Route
 							path="/journals/:id/:entryId"
 							exact
-							component={Entry}
+							component={JournalView}
 						/>
 					</Switch>
 				</Router>

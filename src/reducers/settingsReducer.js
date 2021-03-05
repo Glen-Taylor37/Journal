@@ -1,4 +1,4 @@
-import { TOGGLE_DARKMODE, GET_SETTINGS, SAVE_SETTINGS } from '../actions/types';
+import { TOGGLE_DARKMODE, GET_SETTINGS, SAVE_SETTINGS } from '@actions/types';
 
 const settingsReducer = (state = {}, action) => {
 	switch (action.type) {

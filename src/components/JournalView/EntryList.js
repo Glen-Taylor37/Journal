@@ -12,7 +12,7 @@ const EntryList = (props) => {
 
 		return journal.entries.map((entry, index) => {
 			return (
-				<EntryDiv key={index} onClick={() => props.onEntryClick(index)}>
+				<EntryDiv key={index}>
 					<EntryLink to={`/journals/${journal._id}/${index}`}>
 						{entry.date}
 					</EntryLink>

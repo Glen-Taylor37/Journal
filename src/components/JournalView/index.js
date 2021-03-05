@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getJournal, updateJournal } from '@actions';
-import EntryShow from './EntryShow';
+import EntryEditor from './EntryEditor';
 import { GridDiv } from './styles';
 
 import EntryList from './EntryList';
 
-class Entry extends React.Component {
+class JournalView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.editor = null;
@@ -43,7 +43,7 @@ class Entry extends React.Component {
 		return (
 			<GridDiv>
 				<EntryList onEntryClick={this.onEntryClick} journal={journal} />
-				<EntryShow
+				<EntryEditor
 					journalId={journal._id}
 					text={entry ? entry.text : ''}
 					onPostClick={this.onPostClick}
@@ -58,4 +58,6 @@ const mapStateToProps = (state, ownProps) => {
 	return { journal: state.journals[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { getJournal, updateJournal })(Entry);
+export default connect(mapStateToProps, { getJournal, updateJournal })(
+	JournalView
+);
