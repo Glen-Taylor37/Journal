@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const HeaderItemDiv = styled.div`
 	display: inline-grid;
@@ -55,7 +55,7 @@ export const NavDiv = styled(HeaderItemDiv)`
     }
 `;
 
-export const Button = styled.button`
+export const NavButton = styled.button`
 	height: 100%;
 	border: none;
 	outline: none;
@@ -71,12 +71,15 @@ export const Button = styled.button`
 		padding-right: 5px;
 	}
 	&:hover {
-		filter: brightness(85%);
+		background-color: ${(props) => props.theme.buttonHover};
 	}
 `;
 
-export const RedButton = styled(Button)`
-    background-color: ${(props) => props.theme.red}
+export const RedButton = styled(NavButton)`
+    background-color: ${(props) => props.theme.red};
+	&:hover {
+		background-color: ${(props) => props.theme.redHover};
+	}
 `;
 
 export const InnerNavDiv = styled.div`

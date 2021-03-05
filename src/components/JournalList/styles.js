@@ -68,7 +68,7 @@ export const DeleteButton = styled(Button)`
 	opacity: 0.0;
 	outline: none;
 
-	transition: background-color .2s, opacity .5s;
+	transition: background-color .5s, color .5s, opacity .5s;
 	&:hover {
 		background-color: ${(props) => props.theme.red};
 		color: ${(props) => props.theme.foreText};
@@ -78,19 +78,24 @@ export const DeleteButton = styled(Button)`
 export const DetailDiv = styled.div`font-size: small;`;
 
 export const ViewButton = styled(Button)`
-	align-self: center;
-	margin: 0;
-	border: none;
-	background: none;
 	height: 2em;
 	width: fit-content;
-	font-size: regular;
-	box-shadow: none;
+	margin: 0;
+	border: none;
 	color: ${(props) => props.theme.brightAccent};
+	font-size: large;
+	font-weight: bold;
+	align-self: center;
+	box-shadow: none;
 	outline: none;
 	opacity: 0.0;
 	cursor: pointer; 
-	transition: background-color .2s, opacity .5s;
+
+	transition: background-color .5s, color .5s, opacity .5s;
+	&:hover {
+		background-color: ${(props) => props.theme.brightAccent};
+		color: ${(props) => props.theme.foreText};
+	}
 `;
 
 export const JournalLinkDiv = styled.div`
@@ -159,6 +164,7 @@ export const CreateButton = styled(Button)`
 	transition: box-shadow .2s;
 	&:hover {
 		box-shadow: 0px 2px 2px 2px ${(props) => props.theme.foregroundShadow};
+		background-color: ${(props) => props.theme.accent};
 	}
 `;
 

@@ -22,7 +22,9 @@ export const lightTheme = {
 	brightAccent     : `rgb(120, 121, 244)`,
 
 	red              : `rgb(220, 70, 80)`,
-	brightRed        : `rgb(250, 130, 120)`,
+	redHover         : `rgb(170, 55, 54)`,
+
+	buttonHover      : `rgb(225, 225, 222)`,
 
 	modalBackground  : `rgba(31, 29, 41, 0.678)`
 };
@@ -36,8 +38,8 @@ export const darkTheme = {
 	accent           : `rgb(30, 71, 74)`,
 	brightAccent     : `rgb(40, 88, 84)`,
 
-	red              : `rgb(220, 70, 80)`,
-	brightRed        : `rgb(250, 130, 120)`,
+	red              : `rgb(190, 50, 60)`,
+	redHover         : `rgb(160, 30, 40)`,
 
 	buttonHover      : `rgb(57, 56, 63)`,
 

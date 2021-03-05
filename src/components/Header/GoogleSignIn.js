@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { signIn, signOut, getSettings } from '@actions';
-import { Button, RedButton } from './styles';
+import { NavButton, RedButton } from './styles';
 import Icon from '@shared/Icon';
 
 class GoogleSignIn extends React.Component {
@@ -56,9 +56,9 @@ class GoogleSignIn extends React.Component {
 			);
 		} else {
 			return (
-				<Button onClick={this.onSignInClick}>
+				<NavButton onClick={this.onSignInClick}>
 					<Icon className="fab fa-google" /> Sign in
-				</Button>
+				</NavButton>
 			);
 		}
 	}

@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import Settings from './Settings';
 import GoogleSignIn from './GoogleSignIn';
-import { OuterNavDiv, NavDiv, Button, InnerNavDiv, Vl } from './styles';
+import { OuterNavDiv, NavDiv, NavButton, InnerNavDiv, Vl } from './styles';
 
 import Div from '@shared/Div';
 import Icon from '@shared/Icon';
@@ -26,14 +27,12 @@ const Nav = (props) => {
 			<NavDiv>
 				<InnerNavDiv>
 					{renderName()}
-					<Button as={Link} to="/">
+					<NavButton as={Link} to="/">
 						Journals
-					</Button>
+					</NavButton>
 				</InnerNavDiv>
 				<InnerNavDiv>
-					<Button>
-						<Icon className="fas fa-cog" />Settings
-					</Button>
+					<Settings />
 					<GoogleSignIn />
 				</InnerNavDiv>
 			</NavDiv>
