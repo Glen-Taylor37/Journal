@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const buttonStyle = css`
 	display: flex;
+	background-color: ${(props) => props.theme.foreground};
 	align-items: center;
 	justify-content: center;
 	height: 2em;
@@ -18,9 +19,9 @@ export const buttonStyle = css`
 	text-decoration: none;
 	box-shadow: 0px 2px 2px 1px ${(props) => props.theme.foregroundShadow};
 
-	transition: filter .2s;
+	transition: background-color .2s;
 	&:hover {
-		filter: brightness(85%);
+		background-color ${(props) => props.theme.buttonHover};
 	}
 `;
 

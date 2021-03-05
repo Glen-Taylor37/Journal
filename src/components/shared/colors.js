@@ -28,16 +28,18 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-	background       : `rgb(30, 30, 30)`,
-	foreground       : `rgb(37, 36, 37)`,
-	foregroundShadow : `rgba(0, 0, 0, 0.5)`,
+	background       : `rgb(30, 30, 34)`,
+	foreground       : `rgb(37, 36, 39)`,
+	foregroundShadow : `rgba(0, 0, 0, 0.2)`,
 	foreText         : `rgb(255, 255, 255)`,
 
-	accent           : `rgb(30, 81, 74)`,
-	brightAccent     : `rgb(40, 98, 84)`,
+	accent           : `rgb(30, 71, 74)`,
+	brightAccent     : `rgb(40, 88, 84)`,
 
 	red              : `rgb(220, 70, 80)`,
 	brightRed        : `rgb(250, 130, 120)`,
+
+	buttonHover      : `rgb(57, 56, 63)`,
 
 	modalBackground  : `rgba(3, 5, 8, .678)`
 };

@@ -11,15 +11,29 @@ export const GridDiv = styled(BaseContentDiv)`
 `;
 
 export const JournalDiv = styled.div`
-	height 100%; 
-	width 80%;
 	justify-self: center;
-`;
-export const StyledQuill = styled(ReactQuill)`
+	height: fit-content;
+	color: ${(props) => props.theme.foreText};
+
+	background-color: ${(props) => props.theme.foreground};
 	box-shadow: 0px 2px 4px 2px ${(props) => props.theme.foregroundShadow};
 	border-radius: 4px;
-    height: 80%;
-    transition: width 2s;
+	min-height: 400px;
+`;
+
+export const StyledQuill = styled(ReactQuill)`
+	box-shadow: none;
+	border-radius: 8px;
+
+	& > .ql-toolbar {
+		border: none;
+		font-family: 'Roboto', sans-serif !important;
+	}
+	
+	& > .ql-container {
+		border: none;
+		font-family: 'Roboto', sans-serif !important;
+	}
 `;
 
 export const PostButton = styled(Button)`

@@ -2,6 +2,14 @@ import React from 'react';
 
 import { JournalDiv, PostButton, StyledQuill } from './styles';
 import { toolbarOptions } from '@apis/editor';
+import styled from 'styled-components';
+
+const EmptyDiv = styled.div`
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+`;
 
 class EntryShow extends React.Component {
 	constructor(props) {
@@ -45,16 +53,18 @@ class EntryShow extends React.Component {
 	render() {
 		console.log('value to render: ', this.state.text);
 		return (
-			<JournalDiv>
-				<StyledQuill
-					theme={this.props.readOnly ? 'bubble' : 'snow'}
-					value={this.state.text}
-					onChange={this.handleChange}
-					modules={this.modules}
-					readOnly={this.props.readOnly}
-				/>
+			<EmptyDiv>
+				<JournalDiv>
+					<StyledQuill
+						theme={this.props.readOnly ? 'bubble' : 'snow'}
+						value={this.state.text}
+						onChange={this.handleChange}
+						modules={this.modules}
+						readOnly={this.props.readOnly}
+					/>
+				</JournalDiv>
 				{this.renderPostButton()}
-			</JournalDiv>
+			</EmptyDiv>
 		);
 	}
 }
