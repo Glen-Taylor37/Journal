@@ -38,9 +38,11 @@ class GoogleSignIn extends React.Component {
 
 	onSignInChange = (isSignedIn) => {
 		if (isSignedIn) {
-			this.props.signIn(
-				this.authInstance.currentUser.get().getBasicProfile()
-			);
+			this.props.signIn({
+				idToken : this.authInstance.currentUser.get().getAuthResponse()
+					.id_token,
+				profile : this.authInstance.currentUser.get().getBasicProfile()
+			});
 			this.props.getSettings();
 		} else {
 			this.props.signOut();

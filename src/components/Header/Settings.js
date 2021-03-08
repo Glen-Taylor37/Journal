@@ -2,21 +2,95 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { toggleDarkMode } from '@actions';
+import { toggleDarkMode, getSettings } from '@actions';
 import { LIGHT_THEME, DARK_THEME } from '@shared/colors';
 import { NavButton } from './styles';
+import { Button } from '@shared/Button';
 import Icon from '@shared/Icon';
 
-const Settings = (props) => {
-	return (
-		<NavButton>
-			<Icon className="fas fa-cog" />Settings
-		</NavButton>
-	);
-};
+const NavDropdown = styled.div`
+	position: absolute;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	text-decoration: none;
+	width: 100%;
+	color: ${(props) => props.theme.foreText};
+	background-color: ${(props) => props.theme.foreground};
+	box-shadow: 0px 2px 4px 2px ${(props) => props.theme.foregroundShadow};
+
+	&:hover {
+		background-color: ${(props) => props.theme.buttonHover};
+	}
+`;
+
+const DropDownContainer = styled.div`
+	position: relative;
+	padding: 1px 6px 1px 6px;
+	height: 100%;
+	width: 100%;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	font-size: inherit;
+	font-family: inherit;
+	display: inline;
+	text-decoration: none;
+	color: ${(props) => props.theme.foreText};
+	background-color: ${(props) => props.theme.foreground};
+	cursor: pointer;
+
+	&:hover {
+		background-color: ${(props) => props.theme.buttonHover};
+	}
+`;
+
+class Settings extends React.Component {
+	state = {
+		isOpen : false
+	};
+
+	componentDidMount() {
+		this.props.getSettings();
+	}
+
+	onSettingsClick = () => {
+		this.setState({ isOpen: !this.state.isOpen });
+	};
+
+	onThemeClick = () => {
+		const { theme } = this.props.settings;
+		this.props.toggleDarkMode(
+			theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME
+		);
+	};
+
+	renderDropdown() {
+		if (!this.state.isOpen) {
+			return null;
+		}
+
+		return (
+			<NavDropdown>
+				<button onClick={this.onThemeClick} />
+			</NavDropdown>
+		);
+	}
+
+	render() {
+		return (
+			<DropDownContainer onClick={this.onSettingsClick}>
+				<Icon className="fas fa-cog" />Settings
+				{this.renderDropdown()}
+			</DropDownContainer>
+		);
+	}
+}
 
 const mapStateToProps = (state) => {
-	return { settings: state.settings };
+	return { settings: state.settings, userId: state.user.googleId };
 };
 
-export default connect(mapStateToProps, { toggleDarkMode })(Settings);
+export default connect(mapStateToProps, { toggleDarkMode, getSettings })(
+	Settings
+);

@@ -12,9 +12,17 @@ import {
 } from './types';
 import history from '../history';
 import journals from '@apis/journals';
+import axios from 'axios';
 
-export const signIn = (basicProfile) => {
-	return { type: SIGN_IN, payload: basicProfile };
+export const signIn = (userInformation) => async (dispatch) => {
+	try {
+		await journals.post('/user/tokensignin', {
+			idToken : userInformation.idToken
+		});
+	} catch (err) {
+		console.log(err);
+	}
+	dispatch({ type: SIGN_IN, payload: userInformation });
 };
 
 export const signOut = () => {
@@ -63,12 +71,14 @@ export const toggleDarkMode = (mode) => {
 	return { type: TOGGLE_DARKMODE, payload: mode };
 };
 
-export const getSettings = (userId) => async (dispatch) => {
-	const { data } = await journals.get(`/settings/${userId}`);
-	dispatch({ type: GET_SETTINGS, payload: data.value });
+export const getSettings = () => async (dispatch, getState) => {
+	// const userId = getState().user.googleId;
+	// const { data } = await journals.get(`/settings/${userId}`);
+	// dispatch({ type: GET_SETTINGS, payload: data.value });
 };
 
-export const saveSettings = (userId, settings) => async (dispatch) => {
+export const saveSettings = (settings) => async (dispatch, getState) => {
+	const userId = getState().user.googleId;
 	const { data } = await journals.put(`/settings/${userId}`, settings);
 	dispatch({ type: SAVE_SETTINGS, payload: data.value });
 };
