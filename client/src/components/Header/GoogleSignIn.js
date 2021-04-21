@@ -53,13 +53,13 @@ class GoogleSignIn extends React.Component {
 		if (this.props.user.signedIn) {
 			return (
 				<RedButton onClick={this.onSignOutClick}>
-					<Icon className="fab fa-google" /> Sign Out
+					<Icon className="fab fa-google" /> Log Out
 				</RedButton>
 			);
 		} else {
 			return (
 				<NavButton onClick={this.onSignInClick}>
-					<Icon className="fab fa-google" /> Sign in
+					<Icon className="fab fa-google" /> Log In
 				</NavButton>
 			);
 		}

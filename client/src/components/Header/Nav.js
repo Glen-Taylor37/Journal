@@ -34,6 +34,10 @@ const Nav = (props) => {
 				<InnerNavDiv>
 					<Settings />
 					<GoogleSignIn />
+					<NavButton as={Link} to="/signup">
+						<Icon className="fas fa-user-plus" />
+						Sign Up
+					</NavButton>
 				</InnerNavDiv>
 			</NavDiv>
 		</OuterNavDiv>

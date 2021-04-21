@@ -8,11 +8,21 @@ import {
 	SIGN_OUT,
 	TOGGLE_DARKMODE,
 	GET_SETTINGS,
-	SAVE_SETTINGS
+	SAVE_SETTINGS,
+	SIGN_UP
 } from './types';
 import history from '../history';
 import journals from '@apis/journals';
 import axios from 'axios';
+
+export const signUp = (formData) => async (dispatch) => {
+	try {
+	} catch (err) {
+		console.log(err);
+	}
+
+	dispatch({ type: SIGN_UP, payload: formData });
+};
 
 export const signIn = (userInformation) => async (dispatch) => {
 	try {
