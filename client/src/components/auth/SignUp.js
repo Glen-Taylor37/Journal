@@ -6,14 +6,7 @@ import * as yup from 'yup';
 
 import { signUp } from '@actions';
 import ContentDiv from '@shared/ContentDiv';
-import {
-	InputContainer,
-	Label,
-	Input,
-	Form,
-	Error,
-	SubmitButton
-} from './styles';
+import { Label, Input, Form, Error, SubmitButton } from './styles';
 
 const schema = yup.object().shape({
 	firstName : yup.string().required('First name is required').max(20),
@@ -43,32 +36,20 @@ const SignUp = (props) => {
 	return (
 		<ContentDiv>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<InputContainer>
-					<Label>First Name</Label>
-					<Input {...register('firstName')} />
-					<Error>
-						{errors.firstName ? errors.firstName.message : ''}
-					</Error>
-				</InputContainer>
-				<InputContainer>
-					<Label>Last Name</Label>
-					<Input {...register('lastName')} />
-					<Error>
-						{errors.lastName ? errors.lastName.message : ''}
-					</Error>
-				</InputContainer>
-				<InputContainer>
-					<Label>Email</Label>
-					<Input {...register('email')} />
-					<Error>{errors.email ? errors.email.message : ''}</Error>
-				</InputContainer>
-				<InputContainer>
-					<Label>Password</Label>
-					<Input {...register('password')} />
-					<Error>
-						{errors.password ? errors.password.message : ''}
-					</Error>
-				</InputContainer>
+				<Label>First Name</Label>
+				<Input {...register('firstName')} />
+				<Error>
+					{errors.firstName ? errors.firstName.message : ''}
+				</Error>
+				<Label>Last Name</Label>
+				<Input {...register('lastName')} />
+				<Error>{errors.lastName ? errors.lastName.message : ''}</Error>
+				<Label>Email</Label>
+				<Input {...register('email')} />
+				<Error>{errors.email ? errors.email.message : ''}</Error>
+				<Label>Password</Label>
+				<Input {...register('password')} />
+				<Error>{errors.password ? errors.password.message : ''}</Error>
 				<SubmitButton as={Input} type="submit" />
 			</Form>
 		</ContentDiv>
