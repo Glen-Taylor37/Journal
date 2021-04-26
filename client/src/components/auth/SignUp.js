@@ -4,8 +4,16 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import { signUp } from '@actions';
 import ContentDiv from '@shared/ContentDiv';
-import { Label, Input, Error } from './styles';
+import {
+	InputContainer,
+	Label,
+	Input,
+	Form,
+	Error,
+	SubmitButton
+} from './styles';
 
 const schema = yup.object().shape({
 	firstName : yup.string().required('First name is required').max(20),
@@ -21,33 +29,48 @@ const schema = yup.object().shape({
 		.max(30, 'Password must be maximum 30 characters')
 });
 
-const SignUp = () => {
+const SignUp = (props) => {
 	const formOptions = { resolver: yupResolver(schema) };
 	const { register, handleSubmit, watch, formState: { errors } } = useForm(
 		formOptions
 	);
 
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (formData) => {
+		console.log('submit: ', formData);
+		props.signUp(formData);
+	};
 
 	return (
 		<ContentDiv>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Label>First Name</Label>
-				<input {...register('firstName')} />
-				<Error>
-					{errors.firstName ? errors.firstName.message : ''}
-				</Error>
-				<Label>Last Name</Label>
-				<input {...register('lastName')} />
-				<Error>{errors.lastName ? errors.lastName.message : ''}</Error>
-				<Label>Email</Label>
-				<input {...register('email')} />
-				<Error>{errors.email ? errors.email.message : ''}</Error>
-				<Label>Password</Label>
-				<input {...register('password')} />
-				<Error>{errors.password ? errors.password.message : ''}</Error>
-				<input type="submit" />
-			</form>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<InputContainer>
+					<Label>First Name</Label>
+					<Input {...register('firstName')} />
+					<Error>
+						{errors.firstName ? errors.firstName.message : ''}
+					</Error>
+				</InputContainer>
+				<InputContainer>
+					<Label>Last Name</Label>
+					<Input {...register('lastName')} />
+					<Error>
+						{errors.lastName ? errors.lastName.message : ''}
+					</Error>
+				</InputContainer>
+				<InputContainer>
+					<Label>Email</Label>
+					<Input {...register('email')} />
+					<Error>{errors.email ? errors.email.message : ''}</Error>
+				</InputContainer>
+				<InputContainer>
+					<Label>Password</Label>
+					<Input {...register('password')} />
+					<Error>
+						{errors.password ? errors.password.message : ''}
+					</Error>
+				</InputContainer>
+				<SubmitButton as={Input} type="submit" />
+			</Form>
 		</ContentDiv>
 	);
 };
@@ -56,4 +79,4 @@ const mapStateToProps = (state) => {
 	return {};
 };
 
-export default connect(mapStateToProps, {})(SignUp);
+export default connect(mapStateToProps, { signUp })(SignUp);

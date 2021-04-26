@@ -31,7 +31,7 @@ export const lightTheme = {
 
 export const darkTheme = {
 	background       : `rgb(30, 30, 34)`,
-	foreground       : `rgb(37, 36, 39)`,
+	foreground       : `rgb(42, 43, 45)`,
 	foregroundShadow : `rgba(0, 0, 0, 0.2)`,
 	foreText         : `rgb(255, 255, 255)`,
 

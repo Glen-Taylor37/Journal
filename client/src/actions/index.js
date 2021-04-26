@@ -16,11 +16,13 @@ import journals from '@apis/journals';
 import axios from 'axios';
 
 export const signUp = (formData) => async (dispatch) => {
-	try {
-	} catch (err) {
-		console.log(err);
-	}
+	// try {
+	// } catch (err) {
+	// 	console.log(err);
+	// }
 
+	const result = await journals.post('/signup', formData);
+	console.log('result: ', result);
 	dispatch({ type: SIGN_UP, payload: formData });
 };
 
