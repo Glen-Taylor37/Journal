@@ -39,7 +39,12 @@ exports.signup = async (req, res, next) => {
 
 		const saveResult = await newUser.save();
 
-		res.json({ token: tokenForUser(newUser) });
+		res.json({
+			firstName: newUser.firstName,
+			lastName: newUser.lastName,
+			email: newUser.email,
+			token: tokenForUser(newUser)
+		});
 	} catch (err) {
 		console.log(err);
 		return res.status(422).send({ error: 'Could not save user' });
@@ -48,5 +53,10 @@ exports.signup = async (req, res, next) => {
 
 exports.signin = async (req, res, next) => {
 	// Credentials authenticated - provide token
-	res.send({ token: tokenForUser(req.user) });
+	res.send({
+		firstName : req.user.firstName,
+		lastName  : req.user.lastName,
+		email     : req.user.email,
+		token     : tokenForUser(req.user)
+	});
 };

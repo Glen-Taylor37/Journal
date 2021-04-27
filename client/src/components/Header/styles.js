@@ -67,6 +67,7 @@ export const NavButton = styled.button`
 	color: ${(props) => props.theme.foreText};
 	background-color: ${(props) => props.theme.foreground};
 	padding-left: 6px;
+	padding-right: 6px;
 
 	& > i {
 		padding-right: 5px;

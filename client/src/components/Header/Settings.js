@@ -26,7 +26,7 @@ const NavDropdown = styled.div`
 
 const DropDownContainer = styled.div`
 	position: relative;
-	padding: 1px 6px 1px 6px;
+	padding: 0px 6px 0px 6px;
 	height: 100%;
 	width: 100%;
 	border: none;

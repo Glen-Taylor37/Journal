@@ -4,8 +4,10 @@ import { Router, Route, Switch } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Header from './Header/';
+import Home from './Home/';
 import SignUp from './auth/SignUp';
 import SignOut from './auth/SignOut';
+import SignIn from './auth/SignIn';
 import JournalList from './JournalList';
 import JournalCreate from './JournalCreate';
 import JournalView from './JournalView';
@@ -45,7 +47,13 @@ class App extends React.Component {
 						<Switch>
 							<Route path="/signup" exact component={SignUp} />
 							<Route path="/signout" exact component={SignOut} />
-							<Route path="/" exact component={JournalList} />
+							<Route path="/signin" exact component={SignIn} />
+							<Route
+								path="/journals"
+								exact
+								component={JournalList}
+							/>
+							<Route path="/" exact component={Home} />
 							<Route
 								path="/journals/create"
 								exact

@@ -11,6 +11,7 @@ const ContentDiv = styled.div`
 	flex-direction: column;
 	margin-top: 100px;
 	align-self: center;
+	color: ${(props) => props.theme.foreText};
 `;
 
 export const BaseContentDiv = styled(ContentDiv)`

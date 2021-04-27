@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import { signUp } from '@actions';
+import { signIn } from '@actions';
 import ContentDiv from '@shared/ContentDiv';
 import { Label, Input, Form, Error, SubmitButton } from './styles';
 
 const schema = yup.object().shape({
-	firstName : yup.string().required('First name is required').max(20),
-	lastName  : yup.string().required('Last name is required').max(20),
-	email     : yup
+	email    : yup
 		.string()
 		.required('Email is required')
 		.email('Email is invalid'),
-	password  : yup
-		.string()
-		.required('Password is required')
-		.min(6, 'Password must be minimum 6 characters')
-		.max(30, 'Password must be maximum 30 characters')
+	password : yup.string().required('Password is required')
 });
 
-const SignUp = (props) => {
+const SignIn = (props) => {
 	const formOptions = { resolver: yupResolver(schema) };
 	const { register, handleSubmit, watch, formState: { errors } } = useForm(
 		formOptions
@@ -30,20 +24,12 @@ const SignUp = (props) => {
 
 	const onSubmit = (formData) => {
 		console.log('submit: ', formData);
-		props.signUp(formData);
+		props.signIn(formData);
 	};
 
 	return (
 		<ContentDiv>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<Label>First Name</Label>
-				<Input {...register('firstName')} />
-				<Error>
-					{errors.firstName ? errors.firstName.message : ''}
-				</Error>
-				<Label>Last Name</Label>
-				<Input {...register('lastName')} />
-				<Error>{errors.lastName ? errors.lastName.message : ''}</Error>
 				<Label>Email</Label>
 				<Input {...register('email')} />
 				<Error>{errors.email ? errors.email.message : ''}</Error>
@@ -61,4 +47,4 @@ const mapStateToProps = (state) => {
 	return { error: state.user.error };
 };
 
-export default connect(mapStateToProps, { signUp })(SignUp);
+export default connect(mapStateToProps, { signIn })(SignIn);

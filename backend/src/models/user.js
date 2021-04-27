@@ -7,8 +7,9 @@ const sequelize = new Sequelize(
 
 class User extends Model {
 	async comparePassword(signinPassword) {
+		console.log(this.password);
 		const match = await bcrypt.compare(signinPassword, this.password);
-
+		console.log('match = ', match);
 		return match;
 	}
 }
@@ -34,7 +35,7 @@ User.init(
 			field  : 'google_id'
 		},
 		password  : {
-			type      : DataTypes.STRING(30),
+			type      : DataTypes.STRING(80),
 			allowNull : false
 		},
 		email     : {

@@ -1,18 +1,35 @@
-import { SIGN_IN, SIGN_OUT } from '@actions/types';
+import { SIGN_IN, SIGN_OUT, SIGN_UP, AUTH_ERROR } from '@actions/types';
 
 const userAuthReducer = (state = {}, action) => {
+	console.log(action);
 	switch (action.type) {
 		case SIGN_IN:
-			console.log(action.payload.accessToken);
 			return {
 				...state,
 				signedIn : true,
-				googleId : action.payload.profile.getId(),
-				name     : action.payload.profile.getGivenName()
+				...action.payload
 			};
 		case SIGN_OUT:
-			return { ...state, signedIn: false, googleId: null, name: '' };
-
+			return {
+				...state,
+				signedIn  : false,
+				googleId  : null,
+				firstName : '',
+				lastName  : '',
+				email     : '',
+				token     : ''
+			};
+		case SIGN_UP:
+			return {
+				...state,
+				signedIn : true,
+				...action.payload
+			};
+		case AUTH_ERROR:
+			return {
+				...state,
+				error : action.payload
+			};
 		default:
 			return state;
 	}

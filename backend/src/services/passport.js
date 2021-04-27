@@ -13,14 +13,17 @@ const localLogin = new LocalStrategy(
 		// Verify credentials and call done with user
 		try {
 			// Retrieve user by email
-			const user = await User.findOne({ email: email });
+			const user = await User.findOne({ where: { email: email } });
 			if (!user) {
 				return done(null, false);
 			}
 
+			console.log(password);
+
 			// Check for match between signin password and stored password
 			const match = await user.comparePassword(password);
 			if (!match) {
+				console.log('no match');
 				return done(null, false, { message: 'Passwords do not match' });
 			}
 

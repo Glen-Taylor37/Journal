@@ -14,6 +14,8 @@ import JournalCreate from '../JournalCreate';
 import JournalDelete from './JournalDelete';
 import JournalListItem from './JournalListItem';
 
+import requireAuth from '../auth/requireAuth';
+
 class JournalList extends React.Component {
 	state = {
 		createModalOpen : false,
@@ -103,4 +105,6 @@ const mapStateToProps = (state) => {
 	return { journals: state.journals, userId: state.user.googleId };
 };
 
-export default connect(mapStateToProps, { getJournals })(JournalList);
+export default requireAuth(
+	connect(mapStateToProps, { getJournals })(JournalList)
+);

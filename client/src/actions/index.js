@@ -9,35 +9,51 @@ import {
 	TOGGLE_DARKMODE,
 	GET_SETTINGS,
 	SAVE_SETTINGS,
-	SIGN_UP
+	SIGN_UP,
+	AUTH_ERROR
 } from './types';
 import history from '../history';
 import journals from '@apis/journals';
 import axios from 'axios';
 
 export const signUp = (formData) => async (dispatch) => {
-	// try {
-	// } catch (err) {
-	// 	console.log(err);
-	// }
-
-	const result = await journals.post('/signup', formData);
-	console.log('result: ', result);
-	dispatch({ type: SIGN_UP, payload: formData });
+	try {
+		const response = await journals.post('/signup', formData);
+		dispatch({ type: SIGN_UP, payload: response.data });
+		localStorage.setItem('token', response.data.token);
+		history.push('/journals');
+	} catch (error) {
+		dispatch({ type: AUTH_ERROR, payload: 'Email is in use' });
+	}
 };
 
-export const signIn = (userInformation) => async (dispatch) => {
+// export const signIn = (userInformation) => async (dispatch) => {
+// 	try {
+// 		await journals.post('/user/tokensignin', {
+// 			idToken : userInformation.idToken
+// 		});
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// 	dispatch({ type: SIGN_IN, payload: userInformation });
+// };
+
+export const signIn = (formData) => async (dispatch) => {
 	try {
-		await journals.post('/user/tokensignin', {
-			idToken : userInformation.idToken
+		const response = await journals.post('/signin', formData);
+		dispatch({ type: SIGN_IN, payload: response.data });
+		localStorage.setItem('token', response.data.token);
+		history.push('/journals');
+	} catch (error) {
+		dispatch({
+			type    : AUTH_ERROR,
+			payload : 'Email or password is incorrect'
 		});
-	} catch (err) {
-		console.log(err);
 	}
-	dispatch({ type: SIGN_IN, payload: userInformation });
 };
 
 export const signOut = () => {
+	localStorage.removeItem('token');
 	return { type: SIGN_OUT };
 };
 

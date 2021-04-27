@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 
-const requireAuth = passport.authenticate('jwt', { session: false });
+router.get('/', (req, res) => {
+	res.send('Hello World!');
+});
 
 router.post('/journals', async (req, res) => {
 	// const result = await journalsClient.addJournal(req.body);
@@ -10,9 +11,7 @@ router.post('/journals', async (req, res) => {
 	// console.log(`POST: /journals, response: ${result}`);
 });
 
-router.get('/journals', requireAuth, async (req, res) => {
-	console.log('hi');
-	console.log(req.user);
+router.get('/journals', async (req, res) => {
 	// const result = await journalsClient.getJournals();
 	// res.json(result);
 	// console.log(`GET: /journals, response: ${result.length} entries`);
