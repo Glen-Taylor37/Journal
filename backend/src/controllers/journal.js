@@ -16,7 +16,7 @@ exports.getJournals = async (req, res, next) => {
 	//const journals = await req.user.getJournals();
 	const journals = await Journal.findAll({
 		where   : {
-			user_id : req.user.id
+			userId : req.user.id
 		},
 		include : {
 			model : Entry,
@@ -32,8 +32,8 @@ exports.getJournal = async (req, res, next) => {
 
 	const journal = await Journal.findOne({
 		where   : {
-			id      : journalId,
-			user_id : req.user.id
+			id     : journalId,
+			userId : req.user.id
 		},
 		include : {
 			model : Entry,
@@ -53,9 +53,11 @@ exports.createEntry = async (req, res, next) => {
 	const text = req.body.text;
 
 	// Verify journal owernship
-	const journal = await Journal.findOne({ where: { id: journalId } });
-	if (journal.userId !== req.user.id) {
-		return res.status(403).send('Unauthorized');
+	const journal = await Journal.findOne({
+		where : { id: journalId, userId: req.user.id }
+	});
+	if (!journal) {
+		return res.status(404).send('Not found');
 	}
 
 	const newEntry = await Entry.create({
