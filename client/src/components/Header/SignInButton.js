@@ -12,21 +12,8 @@ class SignInButton extends React.Component {
 
 	onSignOutClick = async () => {};
 
-	onSignInChange = (isSignedIn) => {
-		if (isSignedIn) {
-			this.props.signIn({
-				idToken : this.authInstance.currentUser.get().getAuthResponse()
-					.id_token,
-				profile : this.authInstance.currentUser.get().getBasicProfile()
-			});
-			this.props.getSettings();
-		} else {
-			this.props.signOut();
-		}
-	};
-
 	renderSignInButton() {
-		if (this.props.user.signedIn) {
+		if (this.props.user.token) {
 			return (
 				<RedButton onClick={this.onSignOutClick}>
 					<Icon className="fab fa-google" /> Log Out
@@ -47,7 +34,7 @@ class SignInButton extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	return { user: state.user };
+	return { token: state.user.token };
 };
 
 export default connect(mapStateToProps, { signIn, signOut, getSettings })(

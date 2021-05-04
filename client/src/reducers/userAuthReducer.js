@@ -6,13 +6,11 @@ const userAuthReducer = (state = {}, action) => {
 		case SIGN_IN:
 			return {
 				...state,
-				signedIn : true,
 				...action.payload
 			};
 		case SIGN_OUT:
 			return {
 				...state,
-				signedIn  : false,
 				googleId  : null,
 				firstName : '',
 				lastName  : '',
@@ -22,7 +20,6 @@ const userAuthReducer = (state = {}, action) => {
 		case SIGN_UP:
 			return {
 				...state,
-				signedIn : true,
 				...action.payload
 			};
 		case AUTH_ERROR:

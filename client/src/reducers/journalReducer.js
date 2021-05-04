@@ -3,7 +3,8 @@ import {
 	DELETE_JOURNAL,
 	GET_JOURNAL,
 	GET_JOURNALS,
-	UPDATE_JOURNAL
+	UPDATE_JOURNAL,
+	CREATE_ENTRY
 } from '@actions/types';
 import _ from 'lodash';
 
@@ -12,17 +13,22 @@ const journalReducer = (state = {}, action) => {
 		case GET_JOURNALS:
 			return {
 				...state,
-				..._.mapKeys(action.payload, (journal) => journal._id)
+				..._.mapKeys(action.payload, (journal) => journal.id)
 			};
 		case GET_JOURNAL:
 			return {
 				...state,
-				[action.payload._id]: action.payload
+				[action.payload.id]: action.payload
 			};
+		case CREATE_ENTRY:
+			console.log('action payload', action.payload);
+			const journals = { ...state };
+			journals[action.payload.journalId].entries.push(action.payload);
+			return journals;
 		case CREATE_JOURNAL:
-			return { ...state, [action.payload._id]: action.payload };
+			return { ...state, [action.payload.id]: action.payload };
 		case UPDATE_JOURNAL:
-			return { ...state, [action.payload._id]: action.payload };
+			return { ...state, [action.payload.id]: action.payload };
 		case DELETE_JOURNAL:
 			return _.omit(state, action.payload);
 		default:

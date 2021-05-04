@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const bcrypt = require('bcrypt');
+const Journal = require('./journal');
 
 const sequelize = new Sequelize(
 	'postgres://postgres:postgres@localhost:5432/journals'
@@ -59,6 +60,16 @@ User.init(
 		tableName  : 'users'
 	}
 );
+
+User.hasMany(Journal, {
+	foreignKey : {
+		name      : 'userId',
+		field     : 'user_id',
+		allowNull : false
+	},
+	onDelete   : 'CASCADE'
+});
+Journal.belongsTo(User, { foreignKey: 'userId' });
 
 User.beforeSave(async (user, options) => {
 	const salt = await bcrypt.genSalt(10);

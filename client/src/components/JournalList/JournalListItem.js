@@ -16,7 +16,7 @@ import {
 class JournalListItem extends React.Component {
 	onDeleteClick = (event) => {
 		event.stopPropagation();
-		this.props.deleteJournal(this.props.journal._id);
+		this.props.deleteJournal(this.props.journal.id);
 	};
 
 	render() {
@@ -27,7 +27,7 @@ class JournalListItem extends React.Component {
 				<BannerDiv />
 				<JournalLinkDiv
 					as={Link}
-					to={`/journals/${journal._id}`}
+					to={`/journals/${journal.id}`}
 					onClick={this.props.onClick}
 				>
 					<JournalTitle>{journal.title}</JournalTitle>

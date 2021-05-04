@@ -30,16 +30,12 @@ class JournalList extends React.Component {
 	renderJournalList() {
 		const renderedJournals = [];
 		_.forEach(this.props.journals, (journal) => {
-			if (journal.userId !== this.props.userId) {
-				return null;
-			}
-
 			renderedJournals.push(
 				<JournalListItem
-					key={journal._id}
+					key={journal.id}
 					onClick={this.onListItemClick}
 					onDeleteClick={this.onDeleteClick}
-					journalId={journal._id}
+					journalId={journal.id}
 				/>
 			);
 		});
@@ -82,7 +78,7 @@ class JournalList extends React.Component {
 					isOpen={this.state.deleteModalOpen}
 					journalId={
 						this.state.selectedJournal ? (
-							this.state.selectedJournal._id
+							this.state.selectedJournal.id
 						) : null
 					}
 				/>
@@ -102,7 +98,7 @@ class JournalList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-	return { journals: state.journals, userId: state.user.googleId };
+	return { journals: state.journals };
 };
 
 export default requireAuth(

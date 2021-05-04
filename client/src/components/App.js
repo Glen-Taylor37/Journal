@@ -65,7 +65,7 @@ class App extends React.Component {
 								component={JournalView}
 							/>
 							<Route
-								path="/journals/:id/:entryId"
+								path="/journals/:id/entries/:entryId"
 								exact
 								component={JournalView}
 							/>

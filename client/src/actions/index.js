@@ -10,7 +10,8 @@ import {
 	GET_SETTINGS,
 	SAVE_SETTINGS,
 	SIGN_UP,
-	AUTH_ERROR
+	AUTH_ERROR,
+	CREATE_ENTRY
 } from './types';
 import history from '../history';
 import journals from '@apis/journals';
@@ -58,40 +59,60 @@ export const signOut = () => {
 };
 
 export const createJournal = (formInput) => async (dispatch, getState) => {
-	const userId = getState().user.googleId;
-	const date = new Date().toLocaleString();
-	const { data } = await journals.post('/journals', {
-		...formInput,
-		userId,
-		date,
-		entries : []
-	});
+	const token = localStorage.getItem('token');
+	const { data } = await journals.post(
+		'/journals',
+		{
+			...formInput,
+			entries : []
+		},
+		{ headers: { Authorization: `${token}` } }
+	);
 	dispatch({ type: CREATE_JOURNAL, payload: data });
-	history.push('/');
+	history.push('/journals');
 };
 
-export const getJournals = () => async (dispatch) => {
-	const { data } = await journals.get('/journals');
-	console.log(data);
+export const getJournals = () => async (dispatch, getState) => {
+	const token = localStorage.getItem('token');
+	const { data } = await journals.get('/journals', {
+		headers : { Authorization: `${token}` }
+	});
 	dispatch({ type: GET_JOURNALS, payload: data });
 };
 
 export const getJournal = (journalId) => async (dispatch) => {
-	const { data } = await journals.get(`/journals/${journalId}`);
+	const token = localStorage.getItem('token');
+	const { data } = await journals.get(`/journals/${journalId}`, {
+		headers : { Authorization: `${token}` }
+	});
 	dispatch({ type: GET_JOURNAL, payload: data });
 };
 
 export const deleteJournal = (journalId) => async (dispatch) => {
-	await journals.delete(`/journals/${journalId}`);
+	const token = localStorage.getItem('token');
+	await journals.delete(`/journals/${journalId}`, {
+		headers : { Authorization: `${token}` }
+	});
 	dispatch({ type: DELETE_JOURNAL, payload: journalId });
-	history.push('/');
+	history.push('/journals');
 };
 
-export const updateJournal = (journalId, journal) => async (dispatch) => {
-	console.log('values', journal);
-	const { data } = await journals.patch(`/journals/${journalId}`, journal);
-	console.log('data: ', data);
-	dispatch({ type: UPDATE_JOURNAL, payload: data.value });
+// export const updateJournal = (journalId, journal) => async (dispatch) => {
+// 	const token = localStorage.getItem('token');
+// 	const { data } = await journals.patch(`/journals/${journalId}`, journal);
+// 	dispatch({ type: UPDATE_JOURNAL, payload: data.value });
+// 	history.push(`/journals/${journalId}`);
+// };
+
+export const createEntry = (journalId, entry) => async (dispatch) => {
+	const token = localStorage.getItem('token');
+	const {
+		data
+	} = await journals.post(`/journals/${journalId}/entries`, entry, {
+		headers : { Authorization: `${token}` }
+	});
+	console.log('createEntry', data);
+	dispatch({ type: CREATE_ENTRY, payload: data });
 	history.push(`/journals/${journalId}`);
 };
 

@@ -36,7 +36,7 @@ export const darkTheme = {
 	foreText         : `rgb(255, 255, 255)`,
 
 	accent           : `rgb(30, 71, 74)`,
-	brightAccent     : `rgb(40, 88, 84)`,
+	brightAccent     : `rgb(48, 95, 89)`,
 
 	red              : `rgb(190, 50, 60)`,
 	redHover         : `rgb(160, 30, 40)`,

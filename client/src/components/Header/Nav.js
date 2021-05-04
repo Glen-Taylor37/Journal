@@ -30,7 +30,7 @@ const Nav = (props) => {
 	};
 
 	const renderSignInButton = () => {
-		if (props.signedIn) {
+		if (props.token) {
 			return (
 				<RedButton as={Link} to="/signout">
 					<Icon className="fas fa-sign-out-alt" />
@@ -48,7 +48,7 @@ const Nav = (props) => {
 	};
 
 	const renderSignUpButton = () => {
-		if (!props.signedIn) {
+		if (!props.token) {
 			return (
 				<NavButton as={Link} to="/signup">
 					<Icon className="fas fa-user-plus" />
@@ -79,7 +79,7 @@ const Nav = (props) => {
 };
 
 const mapStateToProps = ({ user }) => {
-	return { name: user.name, signedIn: user.signedIn };
+	return { name: user.name, token: user.token };
 };
 
 export default connect(mapStateToProps, {})(Nav);
