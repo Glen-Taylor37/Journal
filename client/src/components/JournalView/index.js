@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import { getJournal, createEntry } from '@actions';
 import EntryEditor from './EntryEditor';
-import { GridDiv } from './styles';
-
 import EntryList from './EntryList';
+import { GridDiv } from './styles';
+import requireAuth from '../auth/requireAuth';
 
 class JournalView extends React.Component {
 	constructor(props) {
@@ -52,6 +52,6 @@ const mapStateToProps = (state, ownProps) => {
 	return { journal: state.journals[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { getJournal, createEntry })(
-	JournalView
+export default requireAuth(
+	connect(mapStateToProps, { getJournal, createEntry })(JournalView)
 );

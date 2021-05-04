@@ -21,6 +21,9 @@ export const lightTheme = {
 	accent           : `rgb(80, 91, 194)`,
 	brightAccent     : `rgb(120, 121, 244)`,
 
+	link             : `rgb(156, 154, 244)`,
+	linkHover        : `rgb(132, 132, 215)`,
+
 	red              : `rgb(220, 70, 80)`,
 	redHover         : `rgb(170, 55, 54)`,
 
@@ -37,6 +40,9 @@ export const darkTheme = {
 
 	accent           : `rgb(30, 71, 74)`,
 	brightAccent     : `rgb(48, 95, 89)`,
+
+	link             : `rgb(156, 154, 244)`,
+	linkHover        : `rgb(132, 132, 215)`,
 
 	red              : `rgb(190, 50, 60)`,
 	redHover         : `rgb(160, 30, 40)`,
