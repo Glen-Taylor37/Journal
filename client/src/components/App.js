@@ -38,7 +38,9 @@ class App extends React.Component {
 	}
 	render() {
 		return (
-			<ThemeProvider theme={darkTheme}>
+			<ThemeProvider
+				theme={this.props.settings.darkTheme ? darkTheme : lightTheme}
+			>
 				<AppDiv>
 					<GlobalStyles />
 					<BackgroundDiv />

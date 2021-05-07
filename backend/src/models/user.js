@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const bcrypt = require('bcrypt');
 const Journal = require('./journal');
+const Settings = require('./settings');
 
 const sequelize = new Sequelize(
 	'postgres://postgres:postgres@localhost:5432/journals'
@@ -23,17 +24,14 @@ User.init(
 			primaryKey    : true
 		},
 		firstName : {
-			type  : DataTypes.STRING(30),
-			field : 'first_name'
+			type : DataTypes.STRING(30)
 		},
 		lastName  : {
-			type  : DataTypes.STRING(30),
-			field : 'last_name'
+			type : DataTypes.STRING(30)
 		},
 		googleId  : {
 			type   : DataTypes.STRING(60),
-			unique : true,
-			field  : 'google_id'
+			unique : true
 		},
 		password  : {
 			type      : DataTypes.STRING(80),
@@ -41,35 +39,35 @@ User.init(
 		},
 		email     : {
 			type : DataTypes.STRING(60)
-		},
-		createdAt : {
-			type         : DataTypes.DATE,
-			field        : 'created_at',
-			defaultValue : Sequelize.NOW
-		},
-		updatedAt : {
-			type         : DataTypes.DATE,
-			field        : 'updated_at',
-			defaultValue : Sequelize.NOW
 		}
 	},
 	{
 		sequelize,
-		timestamps : false,
-		modelName  : 'User',
-		tableName  : 'users'
+		timestamps  : true,
+		underscored : true,
+		modelName   : 'User',
+		tableName   : 'users'
 	}
 );
 
 User.hasMany(Journal, {
 	foreignKey : {
 		name      : 'userId',
-		field     : 'user_id',
 		allowNull : false
 	},
 	onDelete   : 'CASCADE'
 });
 Journal.belongsTo(User, { foreignKey: 'userId' });
+
+User.hasOne(Settings, {
+	foreignKey : {
+		name      : 'userId',
+		allowNull : false,
+		unique    : true
+	},
+	onDelete   : 'CASCADE'
+});
+Settings.belongsTo(User, { foreignKey: 'userId' });
 
 User.beforeSave(async (user, options) => {
 	const salt = await bcrypt.genSalt(10);

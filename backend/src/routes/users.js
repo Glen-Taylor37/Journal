@@ -9,7 +9,9 @@ const passport = require('passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 const Authentication = require('../controllers/authentication');
+const Settings = require('../controllers/settings');
 
+// Handle authentication requests
 router.get('/', requireAuth, (req, res) => {
 	res.send({ hi: 'there' });
 });
@@ -17,6 +19,13 @@ router.get('/', requireAuth, (req, res) => {
 router.post('/signup', Authentication.signup);
 
 router.post('/signin', requireSignin, Authentication.signin);
+
+// Handle user settings
+router.get('/settings', requireAuth, Settings.getSettings);
+
+router.post('/settings', requireAuth, Settings.createSettings);
+
+router.patch('/settings', requireAuth, Settings.updateSettings);
 
 // const client = new OAuth2Client(config.CLIENT_ID);
 

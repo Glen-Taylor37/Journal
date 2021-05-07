@@ -8,14 +8,13 @@ import {
 	SIGN_OUT,
 	TOGGLE_DARKMODE,
 	GET_SETTINGS,
-	SAVE_SETTINGS,
+	UPDATE_SETTINGS,
 	SIGN_UP,
 	AUTH_ERROR,
 	CREATE_ENTRY
 } from './types';
 import history from '../history';
 import journals from '@apis/journals';
-import axios from 'axios';
 
 export const signUp = (formData) => async (dispatch) => {
 	try {
@@ -58,7 +57,7 @@ export const signOut = () => {
 	return { type: SIGN_OUT };
 };
 
-export const createJournal = (formInput) => async (dispatch, getState) => {
+export const createJournal = (formInput) => async (dispatch) => {
 	const token = localStorage.getItem('token');
 	const { data } = await journals.post(
 		'/journals',
@@ -72,7 +71,7 @@ export const createJournal = (formInput) => async (dispatch, getState) => {
 	history.push('/journals');
 };
 
-export const getJournals = () => async (dispatch, getState) => {
+export const getJournals = () => async (dispatch) => {
 	const token = localStorage.getItem('token');
 	const { data } = await journals.get('/journals', {
 		headers : { Authorization: `${token}` }
@@ -116,18 +115,36 @@ export const createEntry = (journalId, entry) => async (dispatch) => {
 	history.push(`/journals/${journalId}`);
 };
 
-export const toggleDarkMode = (mode) => {
+export const toggleDarkMode = async (mode, getState) => {
 	return { type: TOGGLE_DARKMODE, payload: mode };
 };
 
-export const getSettings = () => async (dispatch, getState) => {
-	// const userId = getState().user.googleId;
-	// const { data } = await journals.get(`/settings/${userId}`);
-	// dispatch({ type: GET_SETTINGS, payload: data.value });
+export const getSettings = () => async (dispatch) => {
+	const token = localStorage.getItem('token');
+	try {
+		const { data } = await journals.get('/settings', {
+			headers : { Authorization: `${token}` }
+		});
+		dispatch({
+			type    : GET_SETTINGS,
+			payload : { darkTheme: data.darkTheme }
+		});
+		console.log('get settngs: ', data);
+	} catch (error) {
+		console.log(error);
+	}
 };
 
-export const saveSettings = (settings) => async (dispatch, getState) => {
-	const userId = getState().user.googleId;
-	const { data } = await journals.put(`/settings/${userId}`, settings);
-	dispatch({ type: SAVE_SETTINGS, payload: data.value });
+export const updateSettings = (settings) => async (dispatch) => {
+	const token = localStorage.getItem('token');
+
+	console.log('settings', settings);
+	const { data } = await journals.patch(
+		'/settings',
+		{ settings: { darkTheme: settings.darkTheme } },
+		{
+			headers : { Authorization: `${token}` }
+		}
+	);
+	dispatch({ type: UPDATE_SETTINGS, payload: data });
 };

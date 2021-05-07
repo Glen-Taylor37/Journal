@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { toggleDarkMode, getSettings } from '@actions';
+import { updateSettings, getSettings } from '@actions';
 import { LIGHT_THEME, DARK_THEME } from '@shared/colors';
 import { NavButton } from './styles';
 import { Button } from '@shared/Button';
@@ -59,10 +59,8 @@ class Settings extends React.Component {
 	};
 
 	onThemeClick = () => {
-		const { theme } = this.props.settings;
-		this.props.toggleDarkMode(
-			theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME
-		);
+		const { darkTheme } = this.props.settings;
+		this.props.updateSettings({ darkTheme: !darkTheme });
 	};
 
 	renderDropdown() {
@@ -91,6 +89,6 @@ const mapStateToProps = (state) => {
 	return { settings: state.settings, userId: state.user.googleId };
 };
 
-export default connect(mapStateToProps, { toggleDarkMode, getSettings })(
+export default connect(mapStateToProps, { updateSettings, getSettings })(
 	Settings
 );

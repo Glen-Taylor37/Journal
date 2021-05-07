@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ContentDiv from '@shared/ContentDiv';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { getJournals } from '@actions';
 
 export const BoxStyle = css`
 	padding: 10px 10px 10px 10px;
@@ -24,17 +25,52 @@ export const StyledLink = styled(Link)`
 export const Box = styled.div`${BoxStyle};`;
 
 class Home extends React.Component {
-	render() {
-		return (
-			<ContentDiv>
+	componentDidMount() {
+		this.props.getJournals();
+	}
+
+	renderHomeContent() {
+		const { journals } = this.props;
+
+		if (!this.props.token) {
+			return (
 				<Box>
 					Welcome.<br />
 					<br /> Please <StyledLink to="/signin">login</StyledLink> or{' '}
 					<StyledLink to="/signup">signup</StyledLink>.
 				</Box>
-			</ContentDiv>
+			);
+		}
+
+		let journalCount = 0;
+		let entryCount = 0;
+		for (const index in journals) {
+			journalCount++;
+			if (journals[index].entries) {
+				journals[index].entries.forEach((entry) => entryCount++);
+			}
+		}
+
+		return (
+			<React.Fragment>
+				<Box>
+					Welcome.<br />
+					<br />
+					{`Journals: ${journalCount}`}
+					<br />
+					{`Entries: ${entryCount}`}
+				</Box>
+			</React.Fragment>
 		);
+	}
+
+	render() {
+		return <ContentDiv>{this.renderHomeContent()}</ContentDiv>;
 	}
 }
 
-export default connect(null, {})(Home);
+const mapStateToProps = (state) => {
+	return { journals: state.journals, token: state.user.token };
+};
+
+export default connect(mapStateToProps, { getJournals })(Home);

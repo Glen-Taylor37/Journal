@@ -1,30 +1,32 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const bcrypt = require('bcrypt');
+const Entry = require('./entry');
 
 const sequelize = new Sequelize(
 	'postgres://postgres:postgres@localhost:5432/journals'
 );
 
-class Entry extends Model {}
+class Settings extends Model {}
 
-Entry.init(
+Settings.init(
 	{
-		id      : {
+		id        : {
 			type          : DataTypes.INTEGER,
 			autoIncrement : true,
 			primaryKey    : true
 		},
-		content : {
-			type : DataTypes.STRING
+		darkTheme : {
+			type         : DataTypes.BOOLEAN,
+			defaultValue : false
 		}
 	},
 	{
 		sequelize,
 		timestamps  : true,
 		underscored : true,
-		modelName   : 'Entry',
-		tableName   : 'entries'
+		modelName   : 'Settings',
+		tableName   : 'settings'
 	}
 );
 
-module.exports = Entry;
+module.exports = Settings;
