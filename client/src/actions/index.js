@@ -137,14 +137,16 @@ export const getSettings = () => async (dispatch) => {
 
 export const updateSettings = (settings) => async (dispatch) => {
 	const token = localStorage.getItem('token');
-
-	console.log('settings', settings);
-	const { data } = await journals.patch(
-		'/settings',
-		{ settings: { darkTheme: settings.darkTheme } },
-		{
-			headers : { Authorization: `${token}` }
-		}
-	);
-	dispatch({ type: UPDATE_SETTINGS, payload: data });
+	if (token) {
+		const { data } = await journals.patch(
+			'/settings',
+			{ settings: { darkTheme: settings.darkTheme } },
+			{
+				headers : { Authorization: `${token}` }
+			}
+		);
+		dispatch({ type: UPDATE_SETTINGS, payload: data });
+	} else {
+		dispatch({ type: UPDATE_SETTINGS, payload: settings });
+	}
 };
