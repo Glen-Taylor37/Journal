@@ -29,6 +29,9 @@ export const lightTheme = {
 
 	buttonHover      : `rgb(225, 225, 222)`,
 
+	gray             : `rgb(190, 190, 190)`,
+	white            : `rgb(255, 255, 255)`,
+
 	modalBackground  : `rgba(31, 29, 41, 0.678)`
 };
 
@@ -48,6 +51,9 @@ export const darkTheme = {
 	redHover         : `rgb(160, 30, 40)`,
 
 	buttonHover      : `rgb(57, 56, 63)`,
+
+	gray             : `rgb(190, 190, 190)`,
+	white            : `rgb(255, 255, 255)`,
 
 	modalBackground  : `rgba(3, 5, 8, .678)`
 };

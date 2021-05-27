@@ -32,8 +32,7 @@ exports.updateSettings = async (req, res, next) => {
 		});
 		if (settings) {
 			const update = await settings.update({
-				...req.body.settings,
-				updatedAt : Sequelize.NOW
+				...req.body.settings
 			});
 			console.log('settings: ', update);
 			res.json(update.toJSON());

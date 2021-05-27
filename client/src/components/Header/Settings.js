@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { updateSettings, getSettings } from '@actions';
 import { LIGHT_THEME, DARK_THEME } from '@shared/colors';
+import Toggle from '@shared/Toggle';
 import { NavButton } from './styles';
 import { Button } from '@shared/Button';
 import Icon from '@shared/Icon';
@@ -58,19 +59,21 @@ class Settings extends React.Component {
 		this.setState({ isOpen: !this.state.isOpen });
 	};
 
-	onThemeClick = () => {
-		const { darkTheme } = this.props.settings;
-		this.props.updateSettings({ darkTheme: !darkTheme });
+	onThemeChange = (checked) => {
+		this.props.updateSettings({ darkTheme: checked });
 	};
 
 	renderDropdown() {
+		const { darkTheme } = this.props.settings;
+
 		if (!this.state.isOpen) {
 			return null;
 		}
 
 		return (
 			<NavDropdown>
-				<button onClick={this.onThemeClick} />
+				<Icon className={darkTheme ? 'fas fa-moon' : 'fas fa-sun'} />
+				<Toggle checked={darkTheme} onChange={this.onThemeChange} />
 			</NavDropdown>
 		);
 	}
