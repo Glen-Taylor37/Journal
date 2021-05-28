@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import { CSSTransitionGroup } from 'react-transition-group'
+// eslint-disable-next-line
+import { CSSTransitionGroup } from 'react-transition-group';
 import { Button } from '@shared/Button';
 
 export const Title = styled.h1`

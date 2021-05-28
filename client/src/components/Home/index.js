@@ -49,7 +49,7 @@ class Home extends React.Component {
 		for (const index in journals) {
 			journalCount++;
 			if (journals[index].entries) {
-				journals[index].entries.forEach((entry) => entryCount++);
+				entryCount += journals[index].entries.length;
 			}
 		}
 

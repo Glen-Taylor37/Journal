@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Settings from './Settings';
-import GoogleSignIn from './GoogleSignIn';
+//import GoogleSignIn from './GoogleSignIn';
 import {
 	OuterNavDiv,
 	NavDiv,

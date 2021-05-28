@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { updateSettings, getSettings } from '@actions';
-import { LIGHT_THEME, DARK_THEME } from '@shared/colors';
 import Toggle from '@shared/Toggle';
-import { NavButton } from './styles';
-import { Button } from '@shared/Button';
 import Icon from '@shared/Icon';
 
 const NavDropdown = styled.div`
