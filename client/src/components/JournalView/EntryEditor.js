@@ -12,25 +12,30 @@ const EmptyDiv = styled.div`
 `;
 
 class EntryEditor extends React.Component {
+	state = { text: '', initialText: '' };
+
 	constructor(props) {
 		super(props);
 		this.modules = {
 			toolbar : toolbarOptions
 		};
-
-		this.state = { text: '' };
 	}
 
 	componentDidMount() {
-		if (this.props.readOnly && this.state.text !== this.props.text) {
-			this.setState({ text: this.props.text });
-		}
+		this.setState({
+			text        : this.props.initialText,
+			initialText : this.props.initialText
+		});
 	}
 
 	componentDidUpdate() {
-		console.log('props.text: ', this.props.text);
-		if (this.props.readOnly && this.state.text !== this.props.text) {
-			this.setState({ text: this.props.text });
+		/* If a new entry is selected we must update the text or clear it.
+		Compare using an initial value forwarded by the parent to determine if dirty */
+		if (this.state.initialText !== this.props.initialText) {
+			this.setState({
+				text        : this.props.initialText,
+				initialText : this.props.initialText
+			});
 		}
 	}
 
@@ -51,7 +56,6 @@ class EntryEditor extends React.Component {
 	};
 
 	render() {
-		console.log('value to render: ', this.state.text);
 		return (
 			<EmptyDiv>
 				<JournalDiv>

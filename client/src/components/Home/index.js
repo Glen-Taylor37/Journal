@@ -32,6 +32,7 @@ class Home extends React.Component {
 	renderHomeContent() {
 		const { journals } = this.props;
 
+		// give user option to sign-in or sign-up if no credentials provided
 		if (!this.props.token) {
 			return (
 				<Box>
@@ -42,6 +43,7 @@ class Home extends React.Component {
 			);
 		}
 
+		// if user signed in, show number of journals and entries
 		let journalCount = 0;
 		let entryCount = 0;
 		for (const index in journals) {

@@ -18,6 +18,7 @@ import journals from '@apis/journals';
 
 export const signUp = (formData) => async (dispatch) => {
 	try {
+		// Send sign up form to backend for validating and user creation
 		const response = await journals.post('/signup', formData);
 		dispatch({ type: SIGN_UP, payload: response.data });
 		localStorage.setItem('token', response.data.token);
@@ -27,21 +28,12 @@ export const signUp = (formData) => async (dispatch) => {
 	}
 };
 
-// export const signIn = (userInformation) => async (dispatch) => {
-// 	try {
-// 		await journals.post('/user/tokensignin', {
-// 			idToken : userInformation.idToken
-// 		});
-// 	} catch (err) {
-// 		console.log(err);
-// 	}
-// 	dispatch({ type: SIGN_IN, payload: userInformation });
-// };
-
 export const signIn = (formData) => async (dispatch) => {
 	try {
+		// send sign in form to backend for verification
 		const response = await journals.post('/signin', formData);
 		dispatch({ type: SIGN_IN, payload: response.data });
+		// store JSON Web Token from response
 		localStorage.setItem('token', response.data.token);
 		history.push('/journals');
 	} catch (error) {
@@ -53,12 +45,14 @@ export const signIn = (formData) => async (dispatch) => {
 };
 
 export const signOut = () => {
+	// clear out cache on sign out
 	localStorage.removeItem('token');
 	return { type: SIGN_OUT };
 };
 
 export const createJournal = (formInput) => async (dispatch) => {
 	const token = localStorage.getItem('token');
+	// post to backend for journal creation
 	const { data } = await journals.post(
 		'/journals',
 		{
@@ -93,15 +87,10 @@ export const deleteJournal = (journalId) => async (dispatch) => {
 		headers : { Authorization: `${token}` }
 	});
 	dispatch({ type: DELETE_JOURNAL, payload: journalId });
+
+	// Force journals list to update
 	history.push('/journals');
 };
-
-// export const updateJournal = (journalId, journal) => async (dispatch) => {
-// 	const token = localStorage.getItem('token');
-// 	const { data } = await journals.patch(`/journals/${journalId}`, journal);
-// 	dispatch({ type: UPDATE_JOURNAL, payload: data.value });
-// 	history.push(`/journals/${journalId}`);
-// };
 
 export const createEntry = (journalId, entry) => async (dispatch) => {
 	const token = localStorage.getItem('token');

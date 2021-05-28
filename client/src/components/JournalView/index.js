@@ -8,6 +8,8 @@ import { GridDiv } from './styles';
 import requireAuth from '../auth/requireAuth';
 
 class JournalView extends React.Component {
+	state = { viewNewEntry: true };
+
 	constructor(props) {
 		super(props);
 		this.editor = null;
@@ -25,6 +27,13 @@ class JournalView extends React.Component {
 		});
 	};
 
+	onEntryClick = (isNewEntry) => {
+		console.log('entry clickin');
+		this.setState({ viewNewEntry: isNewEntry });
+		if (isNewEntry) {
+		}
+	};
+
 	render() {
 		if (!this.props.journal) {
 			return null;
@@ -39,9 +48,9 @@ class JournalView extends React.Component {
 				<EntryList onEntryClick={this.onEntryClick} journal={journal} />
 				<EntryEditor
 					journalId={journal.id}
-					text={entry ? entry.content : ''}
+					initialText={entry ? entry.content : ''}
 					onPostClick={this.onPostClick}
-					readOnly={entry !== undefined}
+					readOnly={!this.state.isNewEntry && entry !== undefined}
 				/>
 			</GridDiv>
 		);

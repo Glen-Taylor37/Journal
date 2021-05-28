@@ -5,6 +5,9 @@ import Modal from '@shared/Modal';
 import { deleteJournal } from '@actions';
 import history from '../../history';
 
+/*
+	Modal Window to delete a selected journal
+*/
 class JournalDelete extends React.Component {
 	onDeleteClick = () => {
 		this.props.deleteJournal(this.props.journalId);

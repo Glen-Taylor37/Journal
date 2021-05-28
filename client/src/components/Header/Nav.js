@@ -17,6 +17,7 @@ import Div from '@shared/Div';
 import Icon from '@shared/Icon';
 
 const Nav = (props) => {
+	// show user's name in nav bar if available
 	const renderName = () => {
 		if (props.name) {
 			return (
@@ -30,6 +31,7 @@ const Nav = (props) => {
 	};
 
 	const renderSignInButton = () => {
+		// show sign-in or sign-out button based on log-in status
 		if (props.token) {
 			return (
 				<RedButton as={Link} to="/signout">
@@ -48,6 +50,7 @@ const Nav = (props) => {
 	};
 
 	const renderSignUpButton = () => {
+		// do not show sign up button if user logged in
 		if (!props.token) {
 			return (
 				<NavButton as={Link} to="/signup">

@@ -10,11 +10,14 @@ const EntryList = (props) => {
 			return null;
 		}
 
-		console.log('list to render: ', journal.entries);
 		return journal.entries.map((entry, index) => {
 			return (
 				<EntryDiv key={index}>
-					<EntryLink to={`/journals/${journal.id}/entries/${index}`}>
+					<EntryLink
+						onClick={() =>
+							props.onEntryClick(false /* isNewEntry */)}
+						to={`/journals/${journal.id}/entries/${index}`}
+					>
 						{new Date(entry.createdAt).toDateString()}
 					</EntryLink>
 				</EntryDiv>
@@ -27,7 +30,12 @@ const EntryList = (props) => {
 			<EntriesTitleDiv>Entries</EntriesTitleDiv>
 			{renderList()}
 			<EntryDiv>
-				<EntryLink to={`/journals/${journal.id}`}>New..</EntryLink>
+				<EntryLink
+					onClick={() => props.onEntryClick(true /* isNewEntry */)}
+					to={`/journals/${journal.id}`}
+				>
+					New..
+				</EntryLink>
 			</EntryDiv>
 		</EntriesDiv>
 	);

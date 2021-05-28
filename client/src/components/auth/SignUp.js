@@ -24,7 +24,7 @@ const schema = yup.object().shape({
 
 const SignUp = (props) => {
 	const formOptions = { resolver: yupResolver(schema) };
-	const { register, handleSubmit, watch, formState: { errors } } = useForm(
+	const { register, handleSubmit, formState: { errors } } = useForm(
 		formOptions
 	);
 

@@ -5,8 +5,12 @@ import { signIn, signOut, getSettings } from '@actions';
 import { NavButton, RedButton } from './styles';
 import Icon from '@shared/Icon';
 
+/*
+	Currently not in use. Replaced by SignInButton using bare email sign-in. 
+*/
 class GoogleSignIn extends React.Component {
 	componentDidMount() {
+		// get browser's auth2 instance, determine if signed in and update state
 		window.gapi.load('auth2', () => {
 			window.gapi.auth2
 				.init({
@@ -57,6 +61,7 @@ class GoogleSignIn extends React.Component {
 				</RedButton>
 			);
 		} else {
+			// log out button
 			return (
 				<NavButton onClick={this.onSignInClick}>
 					<Icon className="fab fa-google" /> Log In
